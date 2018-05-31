@@ -1,0 +1,157 @@
+
+PLAY [all] ********************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************************************************************************************************
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Subscription Manager Register] ******************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [subscription manager refresh] *******************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Subscription Manager List] **********************************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Disable All Repos] ******************************************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [List Repos] *************************************************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Config Manager] *********************************************************************************************************************************************************************************************
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Enable Necessary Repos] *************************************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+
+TASK [Install RHEl7 Base Package] *********************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Update System] **********************************************************************************************************************************************************************************************
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+amos002-compute1.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-compute2.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-compute3.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-glusterfs1.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-glusterfs2.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-glusterfs3.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-infra1.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-infra2.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-infra3.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-master1.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-master2.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+amos002-master3.amosdemo.io : ok=10   changed=9    unreachable=0    failed=0   
+
