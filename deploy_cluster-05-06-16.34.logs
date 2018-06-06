@@ -1,0 +1,1741 @@
+
+PLAY [Initialization Checkpoint Start] **********************************************************************************************************************************************************************
+
+TASK [Set install initialization 'In Progress'] *************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Populate config host groups] **************************************************************************************************************************************************************************
+
+TASK [Load group name mapping variables] ********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Evaluate groups - g_etcd_hosts or g_new_etcd_hosts required] ******************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_master_hosts or g_new_master_hosts required] **************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_node_hosts or g_new_node_hosts required] ******************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_lb_hosts required] ****************************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_nfs_hosts required] ***************************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_nfs_hosts is single host] *********************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_glusterfs_hosts required] *********************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - Fail if no etcd hosts group is defined] *********************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate oo_all_hosts] ********************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+ok: [localhost] => (item=amos002-infra1.amosdemo.io)
+ok: [localhost] => (item=amos002-infra2.amosdemo.io)
+ok: [localhost] => (item=amos002-infra3.amosdemo.io)
+ok: [localhost] => (item=amos002-compute1.amosdemo.io)
+ok: [localhost] => (item=amos002-compute2.amosdemo.io)
+ok: [localhost] => (item=amos002-compute3.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs1.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs2.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs3.amosdemo.io)
+
+TASK [Evaluate oo_masters] **********************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_first_master] *****************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Evaluate oo_new_etcd_to_config] ***********************************************************************************************************************************************************************
+
+TASK [Evaluate oo_masters_to_config] ************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_etcd_to_config] ***************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_first_etcd] *******************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Evaluate oo_etcd_hosts_to_upgrade] ********************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_etcd_hosts_to_backup] *********************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_nodes_to_config] **************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+ok: [localhost] => (item=amos002-infra1.amosdemo.io)
+ok: [localhost] => (item=amos002-infra2.amosdemo.io)
+ok: [localhost] => (item=amos002-infra3.amosdemo.io)
+ok: [localhost] => (item=amos002-compute1.amosdemo.io)
+ok: [localhost] => (item=amos002-compute2.amosdemo.io)
+ok: [localhost] => (item=amos002-compute3.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs1.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs2.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs3.amosdemo.io)
+
+TASK [Add master to oo_nodes_to_config] *********************************************************************************************************************************************************************
+skipping: [localhost] => (item=amos002-master1.amosdemo.io) 
+skipping: [localhost] => (item=amos002-master2.amosdemo.io) 
+skipping: [localhost] => (item=amos002-master3.amosdemo.io) 
+
+TASK [Evaluate oo_lb_to_config] *****************************************************************************************************************************************************************************
+
+TASK [Evaluate oo_nfs_to_config] ****************************************************************************************************************************************************************************
+
+TASK [Evaluate oo_glusterfs_to_config] **********************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-glusterfs1.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs2.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs3.amosdemo.io)
+
+TASK [Evaluate oo_etcd_to_migrate] **************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+PLAY [Ensure that all non-node hosts are accessible] ********************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+PLAY [Initialize basic host facts] **************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : include_tasks] *********************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/deprecations.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_sanitize_inventory : Check for usage of deprecated variables] *******************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : debug] *****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : set_stats] *************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Assign deprecated variables to correct counterparts] *******************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/__deprecations_logging.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra3.amosdemo.io, amos002-infra2.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/__deprecations_metrics.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra3.amosdemo.io, amos002-infra2.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_sanitize_inventory : conditional_set_fact] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : set_fact] **************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : conditional_set_fact] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Standardize on latest variable names] **********************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Normalize openshift_release] *******************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Abort when openshift_release is invalid] *******************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : include_tasks] *********************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/unsupported.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_sanitize_inventory : Ensure that openshift_use_dnsmasq is true] *****************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure that openshift_node_dnsmasq_install_network_manager_hook is true] ***********************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : set_fact] **************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-master3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-master2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-infra1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-infra2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-infra3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-compute2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-compute1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-compute3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+
+TASK [openshift_sanitize_inventory : Ensure that dynamic provisioning is set if using dynamic storage] ******************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure the hosted registry's GlusterFS storage is configured correctly] ************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure the hosted registry's GlusterFS storage is configured correctly] ************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure clusterid is set along with the cloudprovider] ******************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure ansible_service_broker_remove and ansible_service_broker_install are mutually exclusive] ************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure template_service_broker_remove and template_service_broker_install are mutually exclusive] **********************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure that all requires vsphere configuration variables are set] ******************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure removed web console extension variables are not set] ************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure that web console port matches API server port] ******************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Detecting Operating System from ostree_booted] ********************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [set openshift_deployment_type if unset] ***************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [initialize_facts set fact openshift_is_atomic and openshift_is_containerized] *************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Set use_crio to True if cri-o rpm is requested] *******************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Determine Atomic Host Docker Version] *****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [assert atomic host docker version is 1.12 or later] ***************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [Initialize special first-master variables] ************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [stat] *************************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [slurp] ************************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Disable web console if required] **********************************************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+PLAY [Install packages necessary for installer] *************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Ensure openshift-ansible installer package deps are installed] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=iproute) 
+skipping: [amos002-master1.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-master1.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-master1.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-master1.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-master3.amosdemo.io] => (item=iproute) 
+skipping: [amos002-master3.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-master3.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-master3.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-master3.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-master2.amosdemo.io] => (item=iproute) 
+skipping: [amos002-master2.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-master2.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-master2.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-master2.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-infra2.amosdemo.io] => (item=iproute) 
+skipping: [amos002-infra2.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-infra2.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-infra2.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-infra2.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-infra1.amosdemo.io] => (item=iproute) 
+skipping: [amos002-infra1.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-infra1.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-infra1.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-infra1.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-infra3.amosdemo.io] => (item=iproute) 
+skipping: [amos002-infra3.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-infra3.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-infra3.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-infra3.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-compute1.amosdemo.io] => (item=iproute) 
+skipping: [amos002-compute1.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-compute1.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-compute1.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-compute1.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-compute2.amosdemo.io] => (item=iproute) 
+skipping: [amos002-compute2.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-compute2.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-compute2.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-compute2.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-compute3.amosdemo.io] => (item=iproute) 
+skipping: [amos002-compute3.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-compute3.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-compute3.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-compute3.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=iproute) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=iproute) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=yum-utils) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=iproute) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=dbus-python) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=PyYAML) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=python-ipaddress) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=yum-utils) 
+
+TASK [Ensure various deps for running system containers are installed] **************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-master1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-master1.amosdemo.io] => (item=runc) 
+skipping: [amos002-master2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-master2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-master2.amosdemo.io] => (item=runc) 
+skipping: [amos002-master3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-master3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-master3.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-infra2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-infra2.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-infra1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-infra1.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-infra3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-infra3.amosdemo.io] => (item=runc) 
+skipping: [amos002-compute2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-compute2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute2.amosdemo.io] => (item=runc) 
+skipping: [amos002-compute1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-compute1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute1.amosdemo.io] => (item=runc) 
+skipping: [amos002-compute3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-compute3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute3.amosdemo.io] => (item=runc) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=runc) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=runc) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=runc) 
+
+PLAY [Initialize cluster facts] *****************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Gather Cluster facts] *********************************************************************************************************************************************************************************
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Set fact of no_proxy_internal_hostnames] **************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Initialize openshift.node.sdn_mtu] ********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [Initialize etcd host variables] ***********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+PLAY [Determine openshift_version to configure on first master] *********************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [include_role] *****************************************************************************************************************************************************************************************
+
+TASK [openshift_version : Use openshift.common.version fact as version to configure if already installed] ***************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : include_tasks] ********************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_version/tasks/first_master_rpm_version.yml for amos002-master1.amosdemo.io
+
+TASK [openshift_version : Set rpm version to configure if openshift_pkg_version specified] ******************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : Set openshift_version for rpm installation] ***************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_version/tasks/check_available_rpms.yml for amos002-master1.amosdemo.io
+
+TASK [openshift_version : Get available atomic-openshift version] *******************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : fail] *****************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : set_fact] *************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => {
+    "msg": "openshift_pkg_version was not defined. Falling back to -3.9.27"
+}
+
+TASK [openshift_version : set_fact] *************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : set_fact] *************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => {
+    "openshift_version": "3.9.27"
+}
+
+TASK [debug] ************************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => {
+    "msg": "openshift_pkg_version set to -3.9.27"
+}
+
+PLAY [Set openshift_version for etcd, node, and master hosts] ***********************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+PLAY [Ensure the requested version packages are available.] *************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [include_role] *****************************************************************************************************************************************************************************************
+
+TASK [openshift_version : Check openshift_version for rpm installation] *************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_version/tasks/check_available_rpms.yml for amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra3.amosdemo.io, amos002-infra2.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_version : Get available atomic-openshift version] *******************************************************************************************************************************************
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_version : fail] *****************************************************************************************************************************************************************************
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_version : Fail if rpm version and docker image version are different] ***********************************************************************************************************************
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_version : For an RPM install, abort when the release requested does not match the available version.] ***************************************************************************************
+ok: [amos002-master2.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-infra1.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-master3.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-infra3.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-infra2.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-compute2.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-compute1.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-compute3.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-glusterfs1.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-glusterfs2.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+ok: [amos002-glusterfs3.amosdemo.io] => {
+    "changed": false, 
+    "failed": false, 
+    "msg": "All assertions passed"
+}
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-infra1.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-master3.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-infra2.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-infra3.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-compute1.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-compute2.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-glusterfs3.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-glusterfs1.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-compute3.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+ok: [amos002-glusterfs2.amosdemo.io] => {
+    "openshift_release": "3.9"
+}
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-infra1.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-master3.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-infra2.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-infra3.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-compute1.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-compute2.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-glusterfs1.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-compute3.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-glusterfs2.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+ok: [amos002-glusterfs3.amosdemo.io] => {
+    "openshift_image_tag": "latest"
+}
+
+TASK [openshift_version : debug] ****************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-master3.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-infra1.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-infra2.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-compute1.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-infra3.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-compute2.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-glusterfs1.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-compute3.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-glusterfs2.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+ok: [amos002-glusterfs3.amosdemo.io] => {
+    "openshift_pkg_version": "-3.9.27"
+}
+
+PLAY [Verify Requirements] **********************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [Run variable sanity checks] ***************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Initialization Checkpoint End] ************************************************************************************************************************************************************************
+
+TASK [Set install initialization 'Complete'] ****************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Health Check Checkpoint Start] ************************************************************************************************************************************************************************
+
+TASK [Set Health Check 'In Progress'] ***********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [OpenShift Health Checks] ******************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Run health checks (install) - EL] *********************************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-master1.amosdemo.io] ********************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-master1.amosdemo.io] *****************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-master1.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [package_version : amos002-master1.amosdemo.io] *******************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-master1.amosdemo.io] *********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-master1.amosdemo.io] ***************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-master3.amosdemo.io] ********************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-master3.amosdemo.io] *****************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-master3.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [package_version : amos002-master3.amosdemo.io] *******************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-master3.amosdemo.io] *********************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-master2.amosdemo.io] ********************************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-master3.amosdemo.io] ***************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-master2.amosdemo.io] *****************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-master2.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [package_version : amos002-master2.amosdemo.io] *******************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-master2.amosdemo.io] *********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-master2.amosdemo.io] ***************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-infra1.amosdemo.io] *********************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-infra1.amosdemo.io] ******************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-infra1.amosdemo.io] ***************************************************************************************************************************************************
+
+CHECK [package_version : amos002-infra1.amosdemo.io] ********************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-infra1.amosdemo.io] **********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-infra1.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-infra3.amosdemo.io] *********************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-infra3.amosdemo.io] ******************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-infra3.amosdemo.io] ***************************************************************************************************************************************************
+
+CHECK [package_version : amos002-infra3.amosdemo.io] ********************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-infra3.amosdemo.io] **********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-infra3.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-infra2.amosdemo.io] *********************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-infra2.amosdemo.io] ******************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-infra2.amosdemo.io] ***************************************************************************************************************************************************
+
+CHECK [package_version : amos002-infra2.amosdemo.io] ********************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-infra2.amosdemo.io] **********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-infra2.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-compute1.amosdemo.io] *******************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-compute1.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-compute1.amosdemo.io] *************************************************************************************************************************************************
+
+CHECK [package_version : amos002-compute1.amosdemo.io] ******************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-compute1.amosdemo.io] ********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-compute1.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-compute3.amosdemo.io] *******************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-compute3.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-compute3.amosdemo.io] *************************************************************************************************************************************************
+
+CHECK [package_version : amos002-compute3.amosdemo.io] ******************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-compute3.amosdemo.io] ********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-compute3.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-compute2.amosdemo.io] *******************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-compute2.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-compute2.amosdemo.io] *************************************************************************************************************************************************
+
+CHECK [package_version : amos002-compute2.amosdemo.io] ******************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-compute2.amosdemo.io] ********************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-compute2.amosdemo.io] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+
+CHECK [docker_storage : amos002-glusterfs1.amosdemo.io] *****************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-glusterfs1.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-glusterfs1.amosdemo.io] ***********************************************************************************************************************************************
+
+CHECK [package_version : amos002-glusterfs1.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-glusterfs1.amosdemo.io] ******************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-glusterfs1.amosdemo.io] ************************************************************************************************************************************************
+ok: [amos002-compute2.amosdemo.io]
+
+CHECK [docker_storage : amos002-glusterfs2.amosdemo.io] *****************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-glusterfs2.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-glusterfs2.amosdemo.io] ***********************************************************************************************************************************************
+
+CHECK [package_version : amos002-glusterfs2.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-glusterfs2.amosdemo.io] ******************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-glusterfs2.amosdemo.io] ************************************************************************************************************************************************
+
+CHECK [docker_storage : amos002-glusterfs3.amosdemo.io] *****************************************************************************************************************************************************
+
+CHECK [disk_availability : amos002-glusterfs3.amosdemo.io] **************************************************************************************************************************************************
+
+CHECK [package_availability : amos002-glusterfs3.amosdemo.io] ***********************************************************************************************************************************************
+
+CHECK [package_version : amos002-glusterfs3.amosdemo.io] ****************************************************************************************************************************************************
+
+CHECK [docker_image_availability : amos002-glusterfs3.amosdemo.io] ******************************************************************************************************************************************
+
+CHECK [memory_availability : amos002-glusterfs3.amosdemo.io] ************************************************************************************************************************************************
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [Run health checks (install) - Fedora] *****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [Health Check Checkpoint End] **************************************************************************************************************************************************************************
+
+TASK [Set Health Check 'Complete'] **************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [etcd Install Checkpoint Start] ************************************************************************************************************************************************************************
+
+TASK [Set etcd install 'In Progress'] ***********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Generate new etcd CA] *********************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_clock : Determine if chrony is installed] ***************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+
+TASK [openshift_clock : Install ntp package] ****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_clock : Start and enable ntpd/chronyd] ******************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : Check for CA indicator files] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master3.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master3.amosdemo.io'])
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [etcd : include_tasks] *********************************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/etcd/tasks/certificates/deploy_ca.yml for amos002-master1.amosdemo.io
+
+TASK [etcd : Install openssl] *******************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : file] ******************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=/etc/etcd/ca/certs)
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=/etc/etcd/ca/crl)
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=/etc/etcd/ca/fragments)
+
+TASK [etcd : command] ***************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : template] **************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : assemble] **************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Check etcd_ca_db exist] ************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Touch etcd_ca_db file] *************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : copy] ******************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create etcd CA certificate] ********************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+PLAY [Create etcd server certificates for etcd hosts] *******************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [openshift_etcd_facts : Check for CA indicator files] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master3.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master3.amosdemo.io'])
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [etcd : include_tasks] *********************************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/etcd/tasks/ca.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io
+
+TASK [etcd : include_tasks] *********************************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/etcd/tasks/certificates/deploy_ca.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io
+
+TASK [etcd : Install openssl] *******************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : file] ******************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=/etc/etcd/ca/certs)
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=/etc/etcd/ca/crl)
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=/etc/etcd/ca/fragments)
+
+TASK [etcd : command] ***************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : template] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : assemble] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Check etcd_ca_db exist] ************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Touch etcd_ca_db file] *************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [etcd : copy] ******************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create etcd CA certificate] ********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : include_tasks] *********************************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/etcd/tasks/certificates/fetch_server_certificates_from_ca.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io
+
+TASK [etcd : Install etcd] **********************************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Check status of etcd certificates] *************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=/etc/etcd/server.crt)
+ok: [amos002-master2.amosdemo.io] => (item=/etc/etcd/server.crt)
+ok: [amos002-master3.amosdemo.io] => (item=/etc/etcd/server.crt)
+ok: [amos002-master2.amosdemo.io] => (item=/etc/etcd/peer.crt)
+ok: [amos002-master1.amosdemo.io] => (item=/etc/etcd/peer.crt)
+ok: [amos002-master3.amosdemo.io] => (item=/etc/etcd/peer.crt)
+ok: [amos002-master2.amosdemo.io] => (item=/etc/etcd/ca.crt)
+ok: [amos002-master1.amosdemo.io] => (item=/etc/etcd/ca.crt)
+ok: [amos002-master3.amosdemo.io] => (item=/etc/etcd/ca.crt)
+
+TASK [etcd : set_fact] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Ensure generated_certs directory present] ******************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create the server csr] *************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Sign and create the server crt] ****************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create the peer csr] ***************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Sign and create the peer crt] ******************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : file] ******************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create a tarball of the etcd certs] ************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Retrieve etcd cert tarball] ********************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Ensure certificate directory exists] ***********************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=/etc/etcd)
+ok: [amos002-master2.amosdemo.io] => (item=/etc/etcd)
+ok: [amos002-master3.amosdemo.io] => (item=/etc/etcd)
+
+TASK [etcd : Unarchive cert tarball] ************************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+
+TASK [etcd : Create a tarball of the etcd ca certs] *********************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Retrieve etcd ca cert tarball] *****************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Ensure ca directory exists] ********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=/etc/etcd/ca)
+changed: [amos002-master2.amosdemo.io] => (item=/etc/etcd/ca)
+changed: [amos002-master3.amosdemo.io] => (item=/etc/etcd/ca)
+
+TASK [etcd : Delete temporary directory] ********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> localhost]
+ok: [amos002-master2.amosdemo.io -> localhost]
+ok: [amos002-master3.amosdemo.io -> localhost]
+
+TASK [etcd : Validate permissions on certificate files] *****************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io] => (item=/etc/etcd/ca.crt)
+changed: [amos002-master2.amosdemo.io] => (item=/etc/etcd/ca.crt)
+changed: [amos002-master3.amosdemo.io] => (item=/etc/etcd/ca.crt)
+changed: [amos002-master2.amosdemo.io] => (item=/etc/etcd/server.crt)
+changed: [amos002-master1.amosdemo.io] => (item=/etc/etcd/server.crt)
+changed: [amos002-master3.amosdemo.io] => (item=/etc/etcd/server.crt)
+changed: [amos002-master2.amosdemo.io] => (item=/etc/etcd/server.key)
+changed: [amos002-master1.amosdemo.io] => (item=/etc/etcd/server.key)
+changed: [amos002-master3.amosdemo.io] => (item=/etc/etcd/server.key)
+
+TASK [etcd : Validate permissions on peer certificate files] ************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=/etc/etcd/ca.crt)
+ok: [amos002-master2.amosdemo.io] => (item=/etc/etcd/ca.crt)
+ok: [amos002-master3.amosdemo.io] => (item=/etc/etcd/ca.crt)
+changed: [amos002-master2.amosdemo.io] => (item=/etc/etcd/peer.crt)
+changed: [amos002-master1.amosdemo.io] => (item=/etc/etcd/peer.crt)
+changed: [amos002-master3.amosdemo.io] => (item=/etc/etcd/peer.crt)
+changed: [amos002-master1.amosdemo.io] => (item=/etc/etcd/peer.key)
+changed: [amos002-master3.amosdemo.io] => (item=/etc/etcd/peer.key)
+changed: [amos002-master2.amosdemo.io] => (item=/etc/etcd/peer.key)
+
+TASK [etcd : Validate permissions on the config dir] ********************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+
+PLAY [Create etcd client certificates for master hosts] *****************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+
+TASK [openshift_etcd_facts : Check for CA indicator files] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master3.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master3.amosdemo.io'])
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+TASK [etcd : include_tasks] *********************************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/etcd/tasks/certificates/fetch_client_certificates_from_ca.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io
+
+TASK [etcd : Ensure CA certificate exists on etcd_ca_host] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : fail] ******************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [etcd : Check status of external etcd certificatees] ***************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=master.etcd-client.crt)
+ok: [amos002-master2.amosdemo.io] => (item=master.etcd-client.crt)
+ok: [amos002-master3.amosdemo.io] => (item=master.etcd-client.crt)
+ok: [amos002-master1.amosdemo.io] => (item=master.etcd-client.key)
+ok: [amos002-master2.amosdemo.io] => (item=master.etcd-client.key)
+ok: [amos002-master3.amosdemo.io] => (item=master.etcd-client.key)
+ok: [amos002-master1.amosdemo.io] => (item=master.etcd-ca.crt)
+ok: [amos002-master2.amosdemo.io] => (item=master.etcd-ca.crt)
+ok: [amos002-master3.amosdemo.io] => (item=master.etcd-ca.crt)
+
+TASK [etcd : set_fact] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Ensure generated_certs directory present] ******************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create the client csr] *************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Sign and create the client crt] ****************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : file] ******************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Create a tarball of the etcd certs] ************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Retrieve the etcd cert tarballs] ***************************************************************************************************************************************************************
+changed: [amos002-master2.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io -> amos002-master1.amosdemo.io]
+
+TASK [etcd : Ensure certificate directory exists] ***********************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Unarchive etcd cert tarballs] ******************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Delete temporary directory] ********************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io -> localhost]
+ok: [amos002-master1.amosdemo.io -> localhost]
+ok: [amos002-master3.amosdemo.io -> localhost]
+
+TASK [etcd : file] ******************************************************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io] => (item=master.etcd-client.crt)
+changed: [amos002-master3.amosdemo.io] => (item=master.etcd-client.crt)
+changed: [amos002-master2.amosdemo.io] => (item=master.etcd-client.crt)
+changed: [amos002-master2.amosdemo.io] => (item=master.etcd-client.key)
+changed: [amos002-master1.amosdemo.io] => (item=master.etcd-client.key)
+changed: [amos002-master3.amosdemo.io] => (item=master.etcd-client.key)
+changed: [amos002-master2.amosdemo.io] => (item=master.etcd-ca.crt)
+changed: [amos002-master1.amosdemo.io] => (item=master.etcd-ca.crt)
+changed: [amos002-master3.amosdemo.io] => (item=master.etcd-ca.crt)
+
+PLAY [Configure etcd] ***************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [openshift_clock : Determine if chrony is installed] ***************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+
+TASK [openshift_clock : Install ntp package] ****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+TASK [openshift_clock : Start and enable ntpd/chronyd] ******************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+
+TASK [openshift_etcd_facts : Check for CA indicator files] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/ca', u'amos002-master3.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master1.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master1.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master2.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master2.amosdemo.io'])
+ok: [amos002-master1.amosdemo.io -> amos002-master3.amosdemo.io] => (item=[u'/etc/etcd/generated_certs', u'amos002-master3.amosdemo.io'])
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+TASK [openshift_etcd_facts : set_fact] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Set hostname and ip facts] *********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [etcd : Add iptables allow rules] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item={u'port': u'2379/tcp', u'service': u'etcd'}) 
+skipping: [amos002-master1.amosdemo.io] => (item={u'port': u'2380/tcp', u'service': u'etcd peering'}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'port': u'2379/tcp', u'service': u'etcd'}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'port': u'2380/tcp', u'service': u'etcd peering'}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'port': u'2379/tcp', u'service': u'etcd'}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'port': u'2380/tcp', u'service': u'etcd peering'}) 
+
+TASK [etcd : Remove iptables rules] *************************************************************************************************************************************************************************
+
+TASK [etcd : Add firewalld allow rules] *********************************************************************************************************************************************************************
+failed: [amos002-master2.amosdemo.io] (item={u'port': u'2379/tcp', u'service': u'etcd'}) => {"changed": false, "failed": true, "item": {"port": "2379/tcp", "service": "etcd"}, "module_stderr": "Shared connection to amos002-master2.amosdemo.io closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_ui8Bkq/ansible_module_firewalld.py\", line 936, in <module>\r\n    main()\r\n  File \"/tmp/ansible_ui8Bkq/ansible_module_firewalld.py\", line 788, in main\r\n    module.fail(msg='firewall is not currently running, unable to perform immediate actions without a running firewall daemon')\r\nAttributeError: 'AnsibleModule' object has no attribute 'fail'\r\n", "msg": "MODULE FAILURE", "rc": 0}
+failed: [amos002-master3.amosdemo.io] (item={u'port': u'2379/tcp', u'service': u'etcd'}) => {"changed": false, "failed": true, "item": {"port": "2379/tcp", "service": "etcd"}, "module_stderr": "Shared connection to amos002-master3.amosdemo.io closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_lz_uGs/ansible_module_firewalld.py\", line 936, in <module>\r\n    main()\r\n  File \"/tmp/ansible_lz_uGs/ansible_module_firewalld.py\", line 788, in main\r\n    module.fail(msg='firewall is not currently running, unable to perform immediate actions without a running firewall daemon')\r\nAttributeError: 'AnsibleModule' object has no attribute 'fail'\r\n", "msg": "MODULE FAILURE", "rc": 0}
+failed: [amos002-master1.amosdemo.io] (item={u'port': u'2379/tcp', u'service': u'etcd'}) => {"changed": false, "failed": true, "item": {"port": "2379/tcp", "service": "etcd"}, "module_stderr": "Shared connection to amos002-master1.amosdemo.io closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_oI_J3w/ansible_module_firewalld.py\", line 936, in <module>\r\n    main()\r\n  File \"/tmp/ansible_oI_J3w/ansible_module_firewalld.py\", line 788, in main\r\n    module.fail(msg='firewall is not currently running, unable to perform immediate actions without a running firewall daemon')\r\nAttributeError: 'AnsibleModule' object has no attribute 'fail'\r\n", "msg": "MODULE FAILURE", "rc": 0}
+failed: [amos002-master2.amosdemo.io] (item={u'port': u'2380/tcp', u'service': u'etcd peering'}) => {"changed": false, "failed": true, "item": {"port": "2380/tcp", "service": "etcd peering"}, "module_stderr": "Shared connection to amos002-master2.amosdemo.io closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_qmgqTP/ansible_module_firewalld.py\", line 936, in <module>\r\n    main()\r\n  File \"/tmp/ansible_qmgqTP/ansible_module_firewalld.py\", line 788, in main\r\n    module.fail(msg='firewall is not currently running, unable to perform immediate actions without a running firewall daemon')\r\nAttributeError: 'AnsibleModule' object has no attribute 'fail'\r\n", "msg": "MODULE FAILURE", "rc": 0}
+failed: [amos002-master3.amosdemo.io] (item={u'port': u'2380/tcp', u'service': u'etcd peering'}) => {"changed": false, "failed": true, "item": {"port": "2380/tcp", "service": "etcd peering"}, "module_stderr": "Shared connection to amos002-master3.amosdemo.io closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_q80o69/ansible_module_firewalld.py\", line 936, in <module>\r\n    main()\r\n  File \"/tmp/ansible_q80o69/ansible_module_firewalld.py\", line 788, in main\r\n    module.fail(msg='firewall is not currently running, unable to perform immediate actions without a running firewall daemon')\r\nAttributeError: 'AnsibleModule' object has no attribute 'fail'\r\n", "msg": "MODULE FAILURE", "rc": 0}
+failed: [amos002-master1.amosdemo.io] (item={u'port': u'2380/tcp', u'service': u'etcd peering'}) => {"changed": false, "failed": true, "item": {"port": "2380/tcp", "service": "etcd peering"}, "module_stderr": "Shared connection to amos002-master1.amosdemo.io closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_1pa6Eh/ansible_module_firewalld.py\", line 936, in <module>\r\n    main()\r\n  File \"/tmp/ansible_1pa6Eh/ansible_module_firewalld.py\", line 788, in main\r\n    module.fail(msg='firewall is not currently running, unable to perform immediate actions without a running firewall daemon')\r\nAttributeError: 'AnsibleModule' object has no attribute 'fail'\r\n", "msg": "MODULE FAILURE", "rc": 0}
+
+NO MORE HOSTS LEFT ******************************************************************************************************************************************************************************************
+	to retry, use: --limit @/usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.retry
+
+PLAY RECAP **************************************************************************************************************************************************************************************************
+amos002-compute1.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-compute2.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-compute3.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-glusterfs1.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-glusterfs2.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-glusterfs3.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-infra1.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-infra2.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-infra3.amosdemo.io : ok=27   changed=0    unreachable=0    failed=0   
+amos002-master1.amosdemo.io : ok=121  changed=35   unreachable=0    failed=1   
+amos002-master2.amosdemo.io : ok=74   changed=26   unreachable=0    failed=1   
+amos002-master3.amosdemo.io : ok=74   changed=26   unreachable=0    failed=1   
+localhost                  : ok=12   changed=0    unreachable=0    failed=0   
+
+
+INSTALLER STATUS ********************************************************************************************************************************************************************************************
+Initialization             : Complete (0:00:42)
+Health Check               : Complete (0:00:02)
+etcd Install               : In Progress (0:01:01)
+	This phase can be restarted by running: playbooks/openshift-etcd/config.yml
+
+
+
+Failure summary:
+
+
+  1. Hosts:    amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io
+     Play:     Configure etcd
+     Task:     Add firewalld allow rules
+     Message:  All items completed

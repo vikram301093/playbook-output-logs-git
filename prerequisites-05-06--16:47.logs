@@ -1,0 +1,2687 @@
+
+PLAY [Initialization Checkpoint Start] **********************************************************************************************************************************************************************
+
+TASK [Set install initialization 'In Progress'] *************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Populate config host groups] **************************************************************************************************************************************************************************
+
+TASK [Load group name mapping variables] ********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Evaluate groups - g_etcd_hosts or g_new_etcd_hosts required] ******************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_master_hosts or g_new_master_hosts required] **************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_node_hosts or g_new_node_hosts required] ******************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_lb_hosts required] ****************************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_nfs_hosts required] ***************************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_nfs_hosts is single host] *********************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - g_glusterfs_hosts required] *********************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate groups - Fail if no etcd hosts group is defined] *********************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [Evaluate oo_all_hosts] ********************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+ok: [localhost] => (item=amos002-infra1.amosdemo.io)
+ok: [localhost] => (item=amos002-infra2.amosdemo.io)
+ok: [localhost] => (item=amos002-infra3.amosdemo.io)
+ok: [localhost] => (item=amos002-compute1.amosdemo.io)
+ok: [localhost] => (item=amos002-compute2.amosdemo.io)
+ok: [localhost] => (item=amos002-compute3.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs1.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs2.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs3.amosdemo.io)
+
+TASK [Evaluate oo_masters] **********************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_first_master] *****************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Evaluate oo_new_etcd_to_config] ***********************************************************************************************************************************************************************
+
+TASK [Evaluate oo_masters_to_config] ************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_etcd_to_config] ***************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_first_etcd] *******************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [Evaluate oo_etcd_hosts_to_upgrade] ********************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_etcd_hosts_to_backup] *********************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+TASK [Evaluate oo_nodes_to_config] **************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+ok: [localhost] => (item=amos002-infra1.amosdemo.io)
+ok: [localhost] => (item=amos002-infra2.amosdemo.io)
+ok: [localhost] => (item=amos002-infra3.amosdemo.io)
+ok: [localhost] => (item=amos002-compute1.amosdemo.io)
+ok: [localhost] => (item=amos002-compute2.amosdemo.io)
+ok: [localhost] => (item=amos002-compute3.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs1.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs2.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs3.amosdemo.io)
+
+TASK [Add master to oo_nodes_to_config] *********************************************************************************************************************************************************************
+skipping: [localhost] => (item=amos002-master1.amosdemo.io) 
+skipping: [localhost] => (item=amos002-master2.amosdemo.io) 
+skipping: [localhost] => (item=amos002-master3.amosdemo.io) 
+
+TASK [Evaluate oo_lb_to_config] *****************************************************************************************************************************************************************************
+
+TASK [Evaluate oo_nfs_to_config] ****************************************************************************************************************************************************************************
+
+TASK [Evaluate oo_glusterfs_to_config] **********************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-glusterfs1.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs2.amosdemo.io)
+ok: [localhost] => (item=amos002-glusterfs3.amosdemo.io)
+
+TASK [Evaluate oo_etcd_to_migrate] **************************************************************************************************************************************************************************
+ok: [localhost] => (item=amos002-master1.amosdemo.io)
+ok: [localhost] => (item=amos002-master2.amosdemo.io)
+ok: [localhost] => (item=amos002-master3.amosdemo.io)
+
+PLAY [Ensure that all non-node hosts are accessible] ********************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Initialize basic host facts] **************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : include_tasks] *********************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/deprecations.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_sanitize_inventory : Check for usage of deprecated variables] *******************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : debug] *****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : set_stats] *************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Assign deprecated variables to correct counterparts] *******************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/__deprecations_logging.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/__deprecations_metrics.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_sanitize_inventory : conditional_set_fact] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : set_fact] **************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : conditional_set_fact] **************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Standardize on latest variable names] **********************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Normalize openshift_release] *******************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Abort when openshift_release is invalid] *******************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : include_tasks] *********************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_sanitize_inventory/tasks/unsupported.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_sanitize_inventory : Ensure that openshift_use_dnsmasq is true] *****************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure that openshift_node_dnsmasq_install_network_manager_hook is true] ***********************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : set_fact] **************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-master2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-infra1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-infra2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-master3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-infra3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-compute1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-compute2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-compute3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=openshift_hosted_registry_storage_kind) 
+
+TASK [openshift_sanitize_inventory : Ensure that dynamic provisioning is set if using dynamic storage] ******************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure the hosted registry's GlusterFS storage is configured correctly] ************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure the hosted registry's GlusterFS storage is configured correctly] ************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure clusterid is set along with the cloudprovider] ******************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure ansible_service_broker_remove and ansible_service_broker_install are mutually exclusive] ************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure template_service_broker_remove and template_service_broker_install are mutually exclusive] **********************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure that all requires vsphere configuration variables are set] ******************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure removed web console extension variables are not set] ************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_sanitize_inventory : Ensure that web console port matches API server port] ******************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Detecting Operating System from ostree_booted] ********************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [set openshift_deployment_type if unset] ***************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [initialize_facts set fact openshift_is_atomic and openshift_is_containerized] *************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Set use_crio to True if cri-o rpm is requested] *******************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Determine Atomic Host Docker Version] *****************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [assert atomic host docker version is 1.12 or later] ***************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [Initialize special first-master variables] ************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [stat] *************************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [slurp] ************************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Disable web console if required] **********************************************************************************************************************************************************************
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+
+PLAY [Install packages necessary for installer] *************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [Ensure openshift-ansible installer package deps are installed] ****************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=iproute)
+ok: [amos002-master2.amosdemo.io] => (item=iproute)
+ok: [amos002-infra1.amosdemo.io] => (item=iproute)
+ok: [amos002-master3.amosdemo.io] => (item=iproute)
+ok: [amos002-infra2.amosdemo.io] => (item=iproute)
+ok: [amos002-master1.amosdemo.io] => (item=dbus-python)
+ok: [amos002-master2.amosdemo.io] => (item=dbus-python)
+ok: [amos002-infra1.amosdemo.io] => (item=dbus-python)
+ok: [amos002-master3.amosdemo.io] => (item=dbus-python)
+ok: [amos002-infra2.amosdemo.io] => (item=dbus-python)
+ok: [amos002-master2.amosdemo.io] => (item=PyYAML)
+ok: [amos002-master1.amosdemo.io] => (item=PyYAML)
+ok: [amos002-master3.amosdemo.io] => (item=PyYAML)
+ok: [amos002-infra1.amosdemo.io] => (item=PyYAML)
+ok: [amos002-infra2.amosdemo.io] => (item=PyYAML)
+ok: [amos002-master1.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-master2.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-master3.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-infra1.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-infra2.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-master2.amosdemo.io] => (item=yum-utils)
+ok: [amos002-infra1.amosdemo.io] => (item=yum-utils)
+ok: [amos002-master3.amosdemo.io] => (item=yum-utils)
+ok: [amos002-master1.amosdemo.io] => (item=yum-utils)
+ok: [amos002-infra2.amosdemo.io] => (item=yum-utils)
+ok: [amos002-infra3.amosdemo.io] => (item=iproute)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=iproute)
+ok: [amos002-compute1.amosdemo.io] => (item=iproute)
+ok: [amos002-compute3.amosdemo.io] => (item=iproute)
+ok: [amos002-compute2.amosdemo.io] => (item=iproute)
+ok: [amos002-infra3.amosdemo.io] => (item=dbus-python)
+ok: [amos002-compute1.amosdemo.io] => (item=dbus-python)
+ok: [amos002-compute2.amosdemo.io] => (item=dbus-python)
+ok: [amos002-compute3.amosdemo.io] => (item=dbus-python)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=dbus-python)
+ok: [amos002-infra3.amosdemo.io] => (item=PyYAML)
+ok: [amos002-compute3.amosdemo.io] => (item=PyYAML)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=PyYAML)
+ok: [amos002-compute2.amosdemo.io] => (item=PyYAML)
+ok: [amos002-compute1.amosdemo.io] => (item=PyYAML)
+ok: [amos002-infra3.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-compute2.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-compute3.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-compute1.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-infra3.amosdemo.io] => (item=yum-utils)
+ok: [amos002-compute3.amosdemo.io] => (item=yum-utils)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=yum-utils)
+ok: [amos002-compute2.amosdemo.io] => (item=yum-utils)
+ok: [amos002-compute1.amosdemo.io] => (item=yum-utils)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=iproute)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=iproute)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=dbus-python)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=dbus-python)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=PyYAML)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=PyYAML)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=python-ipaddress)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=yum-utils)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=yum-utils)
+
+TASK [Ensure various deps for running system containers are installed] **************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-master1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-master1.amosdemo.io] => (item=runc) 
+skipping: [amos002-master2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-infra1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-master2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-master2.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-infra1.amosdemo.io] => (item=runc) 
+skipping: [amos002-master3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-compute1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-infra2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-master3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-master3.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute1.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra2.amosdemo.io] => (item=runc) 
+skipping: [amos002-infra3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-infra3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-infra3.amosdemo.io] => (item=runc) 
+skipping: [amos002-compute2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=atomic) 
+skipping: [amos002-compute3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=ostree) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=runc) 
+skipping: [amos002-compute2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute2.amosdemo.io] => (item=runc) 
+skipping: [amos002-compute3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-compute3.amosdemo.io] => (item=runc) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=ostree) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=runc) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=atomic) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=ostree) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=runc) 
+
+PLAY [Initialize cluster facts] *****************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [Gather Cluster facts] *********************************************************************************************************************************************************************************
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [Set fact of no_proxy_internal_hostnames] **************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Initialize openshift.node.sdn_mtu] ********************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+PLAY [Initialize etcd host variables] ***********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+TASK [set_fact] *********************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+
+PLAY [Determine openshift_version to configure on first master] *********************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [include_role] *****************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [debug] ************************************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+PLAY [Set openshift_version for etcd, node, and master hosts] ***********************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Ensure the requested version packages are available.] *************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Verify Requirements] **********************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+TASK [Run variable sanity checks] ***************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Initialization Checkpoint End] ************************************************************************************************************************************************************************
+
+TASK [Set install initialization 'Complete'] ****************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+
+PLAY [Validate node hostnames] ******************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Query DNS for IP address of ip-172-31-34-33.eu-west-1.compute.internal] *******************************************************************************************************************************
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Validate openshift_hostname when defined] *************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [Validate openshift_ip exists on node when defined] ****************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [Setup yum repositories for all hosts] *****************************************************************************************************************************************************************
+
+TASK [rhel_subscribe : fail] ********************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : Install Red Hat Subscription manager] ************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : Is host already registered?] *********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : Register host] ***********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : fail] ********************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : Determine if OpenShift Pool Already Attached] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : Attach to OpenShift Pool] ************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [rhel_subscribe : include_tasks] ***********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_repos : openshift_repos detect ostree] ******************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_repos : Ensure libselinux-python is installed] **********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_repos : Remove openshift_additional.repo file] **********************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_repos : Create any additional repos that are defined] ***************************************************************************************************************************************
+
+TASK [openshift_repos : include_tasks] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_repos : include_tasks] **********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_repos : Ensure clean repo cache in the event repos have been changed manually] **************************************************************************************************************
+changed: [amos002-master1.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-master2.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-infra1.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-master3.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-infra3.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-infra2.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-compute1.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-compute2.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-compute3.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-glusterfs1.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-glusterfs3.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+changed: [amos002-glusterfs2.amosdemo.io] => {
+    "msg": "First run of openshift_repos"
+}
+
+TASK [openshift_repos : Record that openshift_repos already ran] ********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+RUNNING HANDLER [openshift_repos : refresh cache] ***********************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+
+PLAY [Configure os_firewall] ********************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [os_firewall : Detecting Atomic Host Operating System] *************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [os_firewall : Set fact r_os_firewall_is_atomic] *******************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [os_firewall : include_tasks] **************************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/os_firewall/tasks/firewalld.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [os_firewall : Fail - Firewalld is not supported on Atomic Host] ***************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [os_firewall : Install firewalld packages] *************************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [os_firewall : Ensure iptables services are not enabled] ***********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io] => (item=iptables)
+ok: [amos002-master2.amosdemo.io] => (item=iptables)
+ok: [amos002-master3.amosdemo.io] => (item=iptables)
+ok: [amos002-infra1.amosdemo.io] => (item=iptables)
+ok: [amos002-infra2.amosdemo.io] => (item=iptables)
+ok: [amos002-master2.amosdemo.io] => (item=ip6tables)
+ok: [amos002-infra2.amosdemo.io] => (item=ip6tables)
+ok: [amos002-master3.amosdemo.io] => (item=ip6tables)
+ok: [amos002-master1.amosdemo.io] => (item=ip6tables)
+ok: [amos002-infra1.amosdemo.io] => (item=ip6tables)
+ok: [amos002-infra3.amosdemo.io] => (item=iptables)
+ok: [amos002-compute1.amosdemo.io] => (item=iptables)
+ok: [amos002-compute3.amosdemo.io] => (item=iptables)
+ok: [amos002-compute2.amosdemo.io] => (item=iptables)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=iptables)
+ok: [amos002-infra3.amosdemo.io] => (item=ip6tables)
+ok: [amos002-compute1.amosdemo.io] => (item=ip6tables)
+ok: [amos002-compute2.amosdemo.io] => (item=ip6tables)
+ok: [amos002-compute3.amosdemo.io] => (item=ip6tables)
+ok: [amos002-glusterfs1.amosdemo.io] => (item=ip6tables)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=iptables)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=iptables)
+ok: [amos002-glusterfs3.amosdemo.io] => (item=ip6tables)
+ok: [amos002-glusterfs2.amosdemo.io] => (item=ip6tables)
+
+TASK [os_firewall : Wait 10 seconds after disabling iptables] ***********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [os_firewall : Start and enable firewalld service] *****************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [os_firewall : need to pause here, otherwise the firewalld service starting can sometimes cause ssh to fail] *******************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+
+TASK [os_firewall : Restart polkitd] ************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [os_firewall : Wait for polkit action to have been created] ********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [os_firewall : include_tasks] **************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [create oo_hosts_containerized_managed_true host group] ************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [oo_nodes_to_config:oo_hosts_containerized_managed_true] ***********************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Setup the docker-storage for overlay] *********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY [create oo_hosts_containerized_managed_true host group] ************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [oo_nodes_to_config:oo_hosts_containerized_managed_true] ***********************************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [openshift_excluder : Install excluders] ***************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_excluder/tasks/install.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_excluder : Install docker excluder - yum] ***************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_excluder : Install docker excluder - dnf] ***************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_excluder : Install openshift excluder - yum] ************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_excluder : Install openshift excluder - dnf] ************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+
+TASK [openshift_excluder : set_fact] ************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [openshift_excluder : Enable excluders] ****************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/openshift_excluder/tasks/exclude.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [openshift_excluder : Check for docker-excluder] *******************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_excluder : Enable docker excluder] **********************************************************************************************************************************************************
+changed: [amos002-master1.amosdemo.io]
+changed: [amos002-master3.amosdemo.io]
+changed: [amos002-master2.amosdemo.io]
+changed: [amos002-infra1.amosdemo.io]
+changed: [amos002-infra2.amosdemo.io]
+changed: [amos002-infra3.amosdemo.io]
+changed: [amos002-compute3.amosdemo.io]
+changed: [amos002-compute1.amosdemo.io]
+changed: [amos002-compute2.amosdemo.io]
+changed: [amos002-glusterfs1.amosdemo.io]
+changed: [amos002-glusterfs2.amosdemo.io]
+changed: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_excluder : Check for openshift excluder] ****************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [openshift_excluder : Enable openshift excluder] *******************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/container_runtime/tasks/common/pre.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Add enterprise registry, if necessary] ********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Get current installed Docker version] *********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/container_runtime/tasks/docker_sanity.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [container_runtime : Error out if Docker pre-installed but too old] ************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Error out if requested Docker is too old] *****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Fail if Docker version requested but downgrade is required] ***********************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Error out if attempting to upgrade Docker across the 1.10 boundary] ***************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Install Docker] *******************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure docker.service.d directory exists] *****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Configure Docker service unit file] ***********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : stat] *****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Set registry params] **************************************************************************************************************************************************************
+ok: [amos002-master3.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-master3.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-master2.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+ok: [amos002-infra1.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+ok: [amos002-infra2.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-master2.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-master1.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-infra2.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+skipping: [amos002-master1.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-master1.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-compute1.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-compute1.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-infra3.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-infra3.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-compute2.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-compute2.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-compute3.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+ok: [amos002-glusterfs1.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-compute3.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+ok: [amos002-glusterfs3.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+ok: [amos002-glusterfs2.amosdemo.io] => (item={u'reg_conf_var': u'ADD_REGISTRY', u'reg_flag': u'--add-registry', u'reg_fact_val': [u'registry.access.redhat.com']})
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'reg_conf_var': u'BLOCK_REGISTRY', u'reg_flag': u'--block-registry', u'reg_fact_val': []}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'reg_conf_var': u'INSECURE_REGISTRY', u'reg_flag': u'--insecure-registry', u'reg_fact_val': []}) 
+
+TASK [container_runtime : Place additional/blocked/insecure registries in /etc/containers/registries.conf] **************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Set Proxy Settings] ***************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master1.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master1.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'reg_conf_var': u'HTTP_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'reg_conf_var': u'HTTPS_PROXY', u'reg_fact_val': u''}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'reg_conf_var': u'NO_PROXY', u'reg_fact_val': u''}) 
+
+TASK [container_runtime : Set various Docker options] *******************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [container_runtime : stat] *****************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Configure Docker Network OPTIONS] *************************************************************************************************************************************************
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Detect if docker is already started] **********************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Start the Docker service] *********************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+
+TASK [container_runtime : set_fact] *************************************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/container_runtime/tasks/common/post.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [container_runtime : Ensure /var/lib/containers exists] ************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Fix SELinux Permissions on /var/lib/containers] ***********************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+included: /usr/share/ansible/openshift-ansible/roles/container_runtime/tasks/registry_auth.yml for amos002-master1.amosdemo.io, amos002-master2.amosdemo.io, amos002-master3.amosdemo.io, amos002-infra1.amosdemo.io, amos002-infra2.amosdemo.io, amos002-infra3.amosdemo.io, amos002-compute1.amosdemo.io, amos002-compute2.amosdemo.io, amos002-compute3.amosdemo.io, amos002-glusterfs1.amosdemo.io, amos002-glusterfs2.amosdemo.io, amos002-glusterfs3.amosdemo.io
+
+TASK [container_runtime : Check for credentials file for registry auth] *************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Create credentials for docker cli registry auth] **********************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Create credentials for docker cli registry auth (alternative)] ********************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : stat the docker data dir] *********************************************************************************************************************************************************
+ok: [amos002-master1.amosdemo.io]
+ok: [amos002-master3.amosdemo.io]
+ok: [amos002-master2.amosdemo.io]
+ok: [amos002-infra1.amosdemo.io]
+ok: [amos002-infra2.amosdemo.io]
+ok: [amos002-infra3.amosdemo.io]
+ok: [amos002-compute1.amosdemo.io]
+ok: [amos002-compute2.amosdemo.io]
+ok: [amos002-compute3.amosdemo.io]
+ok: [amos002-glusterfs1.amosdemo.io]
+ok: [amos002-glusterfs2.amosdemo.io]
+ok: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Fail quickly if openshift_docker_options are set] *********************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Install Docker so we can use the client] ******************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Disable Docker] *******************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure proxies are in the atomic.conf] ********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : debug] ****************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Pre-pull Container Engine System Container image] *********************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure container-engine.service.d directory exists] *******************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure /etc/docker directory exists] **********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Install Container Engine System Container] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Configure Container Engine Service File] ******************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Configure Container Engine] *******************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Start the container-engine service] ***********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : set_fact] *************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Check we are not using node as a Docker container with CRI-O] *********************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Check that overlay is in the kernel] **********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Add overlay to modprobe.d] ********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Manually modprobe overlay into the kernel] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Enable and start systemd-modules-load] ********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure proxies are in the atomic.conf] ********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : debug] ****************************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Pre-pull CRI-O System Container image] ********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Install CRI-O System Container] ***************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Remove CRI-O default configuration files] *****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-master1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-master2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-master2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-master3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-master3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-infra1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-infra1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-infra2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-infra2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-infra3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-infra3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-compute2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-compute2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-compute1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-compute1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-compute3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-compute3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+
+TASK [container_runtime : Create the CRI-O configuration] ***************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure CNI configuration directory exists] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Add iptables allow rules] *********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+
+TASK [container_runtime : Remove iptables rules] ************************************************************************************************************************************************************
+
+TASK [container_runtime : Add firewalld allow rules] ********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+
+TASK [container_runtime : Remove firewalld allow rules] *****************************************************************************************************************************************************
+
+TASK [container_runtime : Configure the CNI network] ********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Create /etc/sysconfig/crio-storage] ***********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Create /etc/sysconfig/crio-network] ***********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Start the CRI-O service] **********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Fail if Atomic Host since this is an rpm request] *********************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Check that overlay is in the kernel] **********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Add overlay to modprobe.d] ********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Manually modprobe overlay into the kernel] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Enable and start systemd-modules-load] ********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Install cri-o] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Remove CRI-O default configuration files] *****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-master1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-master2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-master2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-master3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-master3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-infra1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-infra1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-infra2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-infra2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-infra3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-infra3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-compute1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-compute1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-compute2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-compute2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-compute3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-compute3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=/etc/cni/net.d/200-loopback.conf) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item=/etc/cni/net.d/100-crio-bridge.conf) 
+
+TASK [container_runtime : Create the CRI-O configuration] ***************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Ensure CNI configuration directory exists] ****************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Add iptables allow rules] *********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+
+TASK [container_runtime : Remove iptables rules] ************************************************************************************************************************************************************
+
+TASK [container_runtime : Add firewalld allow rules] ********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-master3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-infra2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-compute3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs1.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs2.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+skipping: [amos002-glusterfs3.amosdemo.io] => (item={u'port': u'10010/tcp', u'service': u'crio'}) 
+
+TASK [container_runtime : Remove firewalld allow rules] *****************************************************************************************************************************************************
+
+TASK [container_runtime : Configure the CNI network] ********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Create /etc/sysconfig/crio-network] ***********************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : Start the CRI-O service] **********************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+TASK [container_runtime : include_tasks] ********************************************************************************************************************************************************************
+skipping: [amos002-master1.amosdemo.io]
+skipping: [amos002-master2.amosdemo.io]
+skipping: [amos002-master3.amosdemo.io]
+skipping: [amos002-infra1.amosdemo.io]
+skipping: [amos002-infra2.amosdemo.io]
+skipping: [amos002-infra3.amosdemo.io]
+skipping: [amos002-compute1.amosdemo.io]
+skipping: [amos002-compute2.amosdemo.io]
+skipping: [amos002-compute3.amosdemo.io]
+skipping: [amos002-glusterfs1.amosdemo.io]
+skipping: [amos002-glusterfs2.amosdemo.io]
+skipping: [amos002-glusterfs3.amosdemo.io]
+
+PLAY RECAP **************************************************************************************************************************************************************************************************
+amos002-compute1.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-compute2.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-compute3.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-glusterfs1.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-glusterfs2.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-glusterfs3.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-infra1.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-infra2.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-infra3.amosdemo.io : ok=60   changed=3    unreachable=0    failed=0   
+amos002-master1.amosdemo.io : ok=71   changed=3    unreachable=0    failed=0   
+amos002-master2.amosdemo.io : ok=64   changed=3    unreachable=0    failed=0   
+amos002-master3.amosdemo.io : ok=64   changed=3    unreachable=0    failed=0   
+localhost                  : ok=12   changed=0    unreachable=0    failed=0   
+
+
+INSTALLER STATUS ********************************************************************************************************************************************************************************************
+Initialization             : Complete (0:00:56)
+
