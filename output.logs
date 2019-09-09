@@ -1,0 +1,2602 @@
+Setting secure vars from file ../secure_env1 ...
+done.
+
+PLAY [Provisioning Azure resources.] ***********************************************************************************************************************************
+
+TASK [provisioning_infrastructure : Setup /home/vkushwah/azure_rm.yml conf file.] **************************************************************************************
+ok: [localhost]
+
+TASK [provisioning_infrastructure : Create empty list for saving preexisting hosts.] ***********************************************************************************
+ok: [localhost]
+
+TASK [provisioning_infrastructure : Obtain already existing VMs.] ******************************************************************************************************
+ok: [localhost] => (item=jumpserver_59ee)
+skipping: [localhost] => (item=master_0_3074) 
+skipping: [localhost] => (item=master_1_b52f) 
+skipping: [localhost] => (item=master_4_9ade) 
+skipping: [localhost] => (item=worker_0_ad97) 
+skipping: [localhost] => (item=worker_2_0c2c) 
+
+TASK [provisioning_infrastructure : Obtain already existing VMSS instances.] *******************************************************************************************
+skipping: [localhost] => (item=jumpserver_59ee) 
+ok: [localhost] => (item=master_0_3074)
+ok: [localhost] => (item=master_1_b52f)
+ok: [localhost] => (item=master_4_9ade)
+ok: [localhost] => (item=worker_0_ad97)
+ok: [localhost] => (item=worker_2_0c2c)
+
+TASK [provisioning_infrastructure : Calculate number of standalone VMs --- AZURE_VM_NUMBER=1.] *************************************************************************
+ok: [localhost]
+
+TASK [provisioning_infrastructure : Add VMSS VMs to total count.] ******************************************************************************************************
+ok: [localhost] => (item=master: +3)
+ok: [localhost] => (item=worker: +2)
+
+TASK [provisioning_infrastructure : Set counter for inventory refresh.] ************************************************************************************************
+ok: [localhost]
+
+TASK [provisioning_infrastructure : Number of tries.] ******************************************************************************************************************
+ok: [localhost] => {
+    "msg": "Refresh inventory try 1/10."
+}
+
+TASK [provisioning_infrastructure : Force failure.] ********************************************************************************************************************
+skipping: [localhost]
+
+TASK [provisioning_infrastructure : Check if all VMs are fetched by inventory refresh.] ********************************************************************************
+ok: [localhost] => {
+    "changed": false, 
+    "msg": "Fetched all VMs."
+}
+
+TASK [provisioning_infrastructure : Create a Azure Log Analytics Workspace] ********************************************************************************************
+ok: [localhost]
+
+TASK [provisioning_infrastructure : Get info of Azure log Analytics] ***************************************************************************************************
+ok: [localhost]
+
+TASK [provisioning_infrastructure : Debug groups.] *********************************************************************************************************************
+ok: [localhost] => {
+    "azureloganalyticsinfo": {
+        "changed": false, 
+        "failed": false, 
+        "warnings": [
+            "Azure API profile latest does not define an entry for LogAnalyticsManagementClient"
+        ], 
+        "workspaces": [
+            {
+                "customer_id": "8d18fb8f-c35b-4e7d-90fb-eed8df151ac4", 
+                "id": "/subscriptions/033534bc-b7cb-44a4-8449-f1b2ba82a149/resourcegroups/kubernetes-poc-vkushwahaloganal/providers/microsoft.operationalinsights/workspaces/fluentd-logs", 
+                "location": "westeurope", 
+                "management_groups": [], 
+                "name": "fluentd-logs", 
+                "provisioning_state": "Succeeded", 
+                "retention_in_days": 30, 
+                "shared_keys": {
+                    "primary_shared_key": "xvT5twXZwr9/JnpzlGfj73mvAiY7B//YNzGHfORRSvP6aoI0u2VASNEpzv9qMLnE3tDpTDAHwrhBEEwn5cSWpg==", 
+                    "secondary_shared_key": "RY31Eb2k2+k4CI0uf0pU1Hz0J5qz/NK48TpqwedYdXgoUzhZ6iUdc21hlZ5XqKYSO8ad6GLBNVZVtp6IXujGAg=="
+                }, 
+                "sku": "pergb2018", 
+                "source": "Azure", 
+                "type": "Microsoft.OperationalInsights/workspaces", 
+                "usages": [
+                    {
+                        "current_value": 0.0, 
+                        "limit": -1.0, 
+                        "name": {
+                            "localized_value": "Data Analyzed", 
+                            "value": "DataAnalyzed"
+                        }, 
+                        "next_reset_time": "2019-09-10T00:00:00.000Z", 
+                        "quota_period": "P1D", 
+                        "unit": "Bytes"
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+TASK [provisioning_infrastructure : Add VMSS VMs to azure-hosts group.] ************************************************************************************************
+skipping: [localhost] => (item=jumpserver_59ee) 
+changed: [localhost] => (item=master_0_3074)
+changed: [localhost] => (item=master_1_b52f)
+changed: [localhost] => (item=master_4_9ade)
+changed: [localhost] => (item=worker_0_ad97)
+changed: [localhost] => (item=worker_2_0c2c)
+
+TASK [provisioning_infrastructure : Create VMSS groups.] ***************************************************************************************************************
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c) 
+skipping: [localhost] => (item=jumpserver_59ee) 
+changed: [localhost] => (item=master_0_3074)
+changed: [localhost] => (item=master_1_b52f)
+changed: [localhost] => (item=master_4_9ade)
+changed: [localhost] => (item=worker_0_ad97)
+changed: [localhost] => (item=worker_2_0c2c)
+
+TASK [provisioning_infrastructure : Add VMs to azure-hosts group.] *****************************************************************************************************
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97) 
+skipping: [localhost] => (item=azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c) 
+changed: [localhost] => (item=jumpserver_59ee)
+skipping: [localhost] => (item=master_0_3074) 
+skipping: [localhost] => (item=master_1_b52f) 
+skipping: [localhost] => (item=master_4_9ade) 
+skipping: [localhost] => (item=worker_0_ad97) 
+skipping: [localhost] => (item=worker_2_0c2c) 
+
+TASK [provisioning_infrastructure : Create jumpserver group.] **********************************************************************************************************
+changed: [localhost] => (item=jumpserver_59ee)
+
+TASK [provisioning_infrastructure : Debug groups.] *********************************************************************************************************************
+ok: [localhost] => {
+    "groups": {
+        "Azure-kubernetes-poc-vkushwahaloganal-jumpserver": [
+            "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee"
+        ], 
+        "Azure-kubernetes-poc-vkushwahaloganal-vmss-master": [
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade"
+        ], 
+        "Azure-kubernetes-poc-vkushwahaloganal-vmss-worker": [
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c"
+        ], 
+        "all": [
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c", 
+            "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee", 
+            "jumpserver_59ee", 
+            "master_0_3074", 
+            "master_1_b52f", 
+            "master_4_9ade", 
+            "worker_0_ad97", 
+            "worker_2_0c2c"
+        ], 
+        "all_the_hosts": [
+            "jumpserver_59ee", 
+            "master_0_3074", 
+            "master_1_b52f", 
+            "master_4_9ade", 
+            "worker_0_ad97", 
+            "worker_2_0c2c"
+        ], 
+        "azure-hosts": [
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c", 
+            "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee"
+        ], 
+        "jumpserver": [
+            "jumpserver_59ee"
+        ], 
+        "master": [
+            "master_0_3074", 
+            "master_1_b52f", 
+            "master_4_9ade"
+        ], 
+        "ungrouped": [], 
+        "worker": [
+            "worker_0_ad97", 
+            "worker_2_0c2c"
+        ]
+    }
+}
+
+PLAY [Provision containerd on all hosts] *******************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade]
+ok: [azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c]
+ok: [azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f]
+ok: [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074]
+ok: [azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97]
+
+PLAY [etcd - Setup systemd config.] ************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [localhost]
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-etcd] *****************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-haproxy] **************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [[u'azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074', u'azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f', u'azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade']] ***
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-infra] ****************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-worker] ***************************************************************************************************************
+
+PLAY [Configure etcd as a containerd in master and adding etcd as a etcd node in master.] ******************************************************************************
+skipping: no hosts matched
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-etcd] *****************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [localhost]
+
+PLAY [Label worker nodes.] *********************************************************************************************************************************************
+
+PLAY [Label infra nodes.] **********************************************************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [debug] ***********************************************************************************************************************************************************
+ok: [localhost] => {
+    "hostvars[inventory_hostname]": {
+        "AZURE_ADMINUSER_NAME": "{{ KUBERNETES_AZURE_USER[0].username }}", 
+        "AZURE_ADMINUSER_PRIVATE_SSH_KEY": "{{ KUBERNETES_AZURE_USER[0].private_key_file }}", 
+        "AZURE_BASTION_HOSTNAME": "jumpserver", 
+        "AZURE_BLOB_CONTAINER": {
+            "velero": {
+                "name": "velero"
+            }
+        }, 
+        "AZURE_CREATE_BLOB_CONTAINER": true, 
+        "AZURE_CREATE_LB": true, 
+        "AZURE_CREATE_ROUTES": false, 
+        "AZURE_CREATE_SUBNET": true, 
+        "AZURE_CREATE_VMSS": true, 
+        "AZURE_CREATE_VPN_GW": false, 
+        "AZURE_DNS_RECORD": true, 
+        "AZURE_IMAGE": {
+            "offer": "RHEL", 
+            "publisher": "RedHat", 
+            "sku": "7-RAW", 
+            "version": "latest"
+        }, 
+        "AZURE_INVENTORY_REFRESH_COUNTER": 1, 
+        "AZURE_KUBERNETES_VM_SIZE": "Standard_B2s", 
+        "AZURE_LOG_ANALYTICS": true, 
+        "AZURE_LOG_ANALYTICS_SKU": "per_gb2018", 
+        "AZURE_LOG_ANALYTICS_WORKSPACENAME": "fluentd-logs", 
+        "AZURE_REMOTE_VIRTUAL_NETWORK": {
+            "kubernetes-poc-vpn": {
+                "allow_forwarded_traffic": false, 
+                "allow_virtual_network_access": true, 
+                "local_resource_group": "{{ KUBERNETES_AZURE_RESOURCE_GROUP_NAME }}", 
+                "local_vnet_name": "{{ KUBERNETES_AZURE_VNET.name }}", 
+                "remote_resource_group": "kubernetes-poc-vpn", 
+                "remote_vnet_name": "kubernetes-poc-vpn-vnet", 
+                "state": "present"
+            }
+        }, 
+        "AZURE_VM_EXTENSIONS": {
+            "customScript": {
+                "command": "/usr/bin/cat /etc/ssh/ssh_host_ecdsa_key.pub"
+            }
+        }, 
+        "AZURE_VM_NUMBER": "6", 
+        "AZURE_VM_SIZE": "Standard_B1s", 
+        "CLOUD_PROVIDER": "Azure", 
+        "CONTAINERD_SHA256": "d4ed54891e90a5d1a45e3e96464e2e8a4770cd380c21285ef5c9895c40549218", 
+        "CONTAINERD_VERSION": "1.1.2", 
+        "DNSRECORD": {
+            "dashboard.": {
+                "record_type": "A", 
+                "relative_name": "{{ DNSRECORDSET4 }}{{ KUBERNETES_UNIQUE_TAG }}", 
+                "resource_group": "central-dns", 
+                "state": "present", 
+                "zone_name": "{{ DNSZONENAME }}"
+            }, 
+            "grafana.": {
+                "record_type": "A", 
+                "relative_name": "{{ DNSRECORDSET2 }}{{ KUBERNETES_UNIQUE_TAG }}", 
+                "resource_group": "central-dns", 
+                "state": "present", 
+                "zone_name": "{{ DNSZONENAME }}"
+            }, 
+            "graylog.": {
+                "record_type": "A", 
+                "relative_name": "{{ DNSRECORDSET1 }}{{ KUBERNETES_UNIQUE_TAG }}", 
+                "resource_group": "central-dns", 
+                "state": "present", 
+                "zone_name": "{{ DNSZONENAME }}"
+            }, 
+            "keycloak-": {
+                "record_type": "A", 
+                "relative_name": "{{ DNSRECORDSET5 }}{{ KUBERNETES_UNIQUE_TAG }}", 
+                "resource_group": "central-dns", 
+                "state": "present", 
+                "zone_name": "{{ DNSZONENAME }}"
+            }, 
+            "nginx.": {
+                "record_type": "A", 
+                "relative_name": "{{ DNSRECORDSET3 }}{{ KUBERNETES_UNIQUE_TAG }}", 
+                "resource_group": "central-dns", 
+                "state": "present", 
+                "zone_name": "{{ DNSZONENAME }}"
+            }
+        }, 
+        "DNSRECORDSET1": "graylog.", 
+        "DNSRECORDSET2": "grafana.", 
+        "DNSRECORDSET3": "nginx.", 
+        "DNSRECORDSET4": "dashboard.", 
+        "DNSRECORDSET5": "keycloak-", 
+        "DNSZONENAME": "k8s-azure.appagile-test.de", 
+        "ETCD_TAG": "v3.2.24", 
+        "INGRESS_CONTROLLER_TYPE": "NodePort", 
+        "K8S_PROVIDER": "heptio", 
+        "K8S_TOOLS": {
+            "backup": false, 
+            "consul": false, 
+            "dashboard": false, 
+            "helm": false, 
+            "iam": false, 
+            "iam_kubernetes": false, 
+            "ingressController": false, 
+            "kubectl": false, 
+            "logging": true, 
+            "logging_azure_log_analytics": true, 
+            "monitoring": false, 
+            "storageos": false
+        }, 
+        "K8S_TOOL_CLUSTERROLEBINDING": {
+            "GROUPS1": {
+                "group_name": "DAIVBADM.CONFIPLUS_PLATFORM_CLUSTER_ADMIN", 
+                "roleRef_Kind": "ClusterRole", 
+                "roleRef_name": "cluster-admin"
+            }, 
+            "GROUPS2": {
+                "group_name": "DAIVBADM.CONFIPLUS_PLATFORM_SELF_PROVISIONER", 
+                "roleRef_Kind": "ClusterRole", 
+                "roleRef_name": "self-provisioner"
+            }, 
+            "GROUPS3": {
+                "group_name": "DAIVBADM.CONFIPLUS_PLATFORM_CLUSTER_READER", 
+                "roleRef_Kind": "ClusterRole", 
+                "roleRef_name": "cluster-reader"
+            }, 
+            "GROUPS4": {
+                "group_name": "DAIVBADM.CONFIPLUS_PLATFORM_PROJECT_MANAGER", 
+                "roleRef_Kind": "ClusterRole", 
+                "roleRef_name": "project-manager"
+            }
+        }, 
+        "K8S_TOOL_CONSUL_GEO": "ece", 
+        "K8S_TOOL_CONSUL_GEODOMAIN": "", 
+        "K8S_TOOL_CONSUL_GOSSIP_SECRET": "VXDfi3+vOkeuBR7cJGlsuQ==", 
+        "K8S_TOOL_CONSUL_REGION": "weu", 
+        "K8S_TOOL_IAMDaimler": {
+            "CERT_NAME": "QuoVadis_Global_SSL_ICA_G3.crt", 
+            "URL": "https://ssoalpha.dvb.corpinter.net/v1"
+        }, 
+        "K8S_TOOL_IAM_KEYCLOAK": {
+            "USER1": {
+                "iam_password": "vikramiam", 
+                "iam_username": "vikramiam"
+            }
+        }, 
+        "K8S_TOOL_POSTGRES": {
+            "DB_ADDR": "postgresql", 
+            "DB_DATABASE": "keycloak", 
+            "DB_PASSWORD": "keycloak", 
+            "DB_PORT": "5432", 
+            "DB_USER": "keycloak", 
+            "DB_VENDOR": "postgres", 
+            "POSTGRES_ROOT_PASSWORD": "password"
+        }, 
+        "K8S_TOOL_SSL": {
+            "CERTIFICATE1": {
+                "COMMON_NAME": "*.k8s-azure.appagile-test.de", 
+                "COUNTRY_NAME": "IN", 
+                "EMAIL_ADDRESS": "Vikram-Singh.Kushwaha@t-systems.com", 
+                "ORGANIZATION_NAME": "T-Systems"
+            }
+        }, 
+        "K8_TOOL_GRAYLOG_ADMIN_PASSWORD": "d?xkhT6z#abpTxj_", 
+        "K8_TOOL_GRAYLOG_ADMIN_USER": "admin", 
+        "K8_TOOL_NGINX_PROMETHEUS": {
+            "USER1": {
+                "htpasswd_password": "vikram", 
+                "htpasswd_username": "vikram"
+            }, 
+            "USER2": {
+                "htpasswd_password": "tim", 
+                "htpasswd_username": "tim"
+            }, 
+            "USER3": {
+                "htpasswd_password": "florian", 
+                "htpasswd_username": "florian"
+            }, 
+            "USER4": {
+                "htpasswd_password": "faiz", 
+                "htpasswd_username": "faiz"
+            }
+        }, 
+        "KUBERNETES_AZURE_CREATE_NIC": true, 
+        "KUBERNETES_AZURE_CREATE_PUBLIC_IP": true, 
+        "KUBERNETES_AZURE_CREATE_SECURITY_GROUPS": true, 
+        "KUBERNETES_AZURE_CREATE_VM": true, 
+        "KUBERNETES_AZURE_CREATE_VNET": true, 
+        "KUBERNETES_AZURE_CREATE_VNET_PEERING": false, 
+        "KUBERNETES_AZURE_LB": {
+            "master": {
+                "backend_address_pools": [
+                    {
+                        "name": "backendaddrpool0"
+                    }
+                ], 
+                "frontend_ip_configurations": [
+                    {
+                        "name": "frontendipconf0", 
+                        "public_ip_address": "{{ KUBERNETES_AZURE_PUBLIC_IP['master'].name }}"
+                    }
+                ], 
+                "load_balancing_rules": [
+                    {
+                        "backend_address_pool": "backendaddrpool0", 
+                        "backend_port": 6443, 
+                        "frontend_ip_configuration": "frontendipconf0", 
+                        "frontend_port": 6443, 
+                        "name": "lbrbalancingrule0", 
+                        "probe": "prob0"
+                    }
+                ], 
+                "probes": [
+                    {
+                        "fail_count": 2, 
+                        "interval": 5, 
+                        "name": "prob0", 
+                        "port": 6443, 
+                        "protocol": "Tcp"
+                    }
+                ]
+            }, 
+            "nodes": {
+                "backend_address_pools": [
+                    {
+                        "name": "backendaddrpool0"
+                    }
+                ], 
+                "frontend_ip_configurations": [
+                    {
+                        "name": "frontendipconf0", 
+                        "public_ip_address": "{{ KUBERNETES_AZURE_LB_INGRESS_CONTROLLER_PUBLIC_IP }}"
+                    }
+                ], 
+                "load_balancing_rules": [
+                    {
+                        "backend_address_pool": "backendaddrpool0", 
+                        "backend_port": 30080, 
+                        "frontend_ip_configuration": "frontendipconf0", 
+                        "frontend_port": 80, 
+                        "name": "lbrbalancingrule0", 
+                        "probe": "prob0"
+                    }, 
+                    {
+                        "backend_address_pool": "backendaddrpool0", 
+                        "backend_port": 30443, 
+                        "frontend_ip_configuration": "frontendipconf0", 
+                        "frontend_port": 443, 
+                        "name": "lbrbalancingrule1", 
+                        "probe": "prob1"
+                    }
+                ], 
+                "probes": [
+                    {
+                        "fail_count": 3, 
+                        "interval": 60, 
+                        "name": "prob0", 
+                        "port": 30080, 
+                        "protocol": "Tcp"
+                    }, 
+                    {
+                        "fail_count": 3, 
+                        "interval": 60, 
+                        "name": "prob1", 
+                        "port": 30443, 
+                        "protocol": "Tcp"
+                    }
+                ]
+            }
+        }, 
+        "KUBERNETES_AZURE_LB_INGRESS_CONTROLLER_PUBLIC_IP": "kubernetes-Node", 
+        "KUBERNETES_AZURE_LB_MASTER": "master", 
+        "KUBERNETES_AZURE_LB_NODES": "nodes", 
+        "KUBERNETES_AZURE_LB_VPN_GW": "{{ AZURE_VPN_GW_NAME }}", 
+        "KUBERNETES_AZURE_NIC": {
+            "jumpserver": {
+                "ip_configurations": [
+                    {
+                        "name": "ipconfig1", 
+                        "primary": true, 
+                        "private_ip_allocation_method": "Dynamic", 
+                        "public_ip_address_name": "{{ KUBERNETES_AZURE_PUBLIC_IP[AZURE_BASTION_HOSTNAME].name }}"
+                    }
+                ], 
+                "name": "{{ AZURE_BASTION_HOSTNAME }}", 
+                "security_group": "{{ KUBERNETES_AZURE_SECURITY_GROUPS[AZURE_BASTION_HOSTNAME].name }}", 
+                "subnet": "publicsubnet", 
+                "virtual_network": "{{ KUBERNETES_AZURE_VNET.name }}"
+            }
+        }, 
+        "KUBERNETES_AZURE_PUBLIC_IP": {
+            "jumpserver": {
+                "allocation_method": "Static", 
+                "domain": "{{ AZURE_BASTION_HOSTNAME }}", 
+                "name": "{{ AZURE_BASTION_HOSTNAME }}"
+            }, 
+            "kubernetes-Node": {
+                "allocation_method": "Static", 
+                "name": "{{ KUBERNETES_AZURE_LB_INGRESS_CONTROLLER_PUBLIC_IP }}"
+            }, 
+            "master": {
+                "allocation_method": "Static", 
+                "name": "master"
+            }
+        }, 
+        "KUBERNETES_AZURE_REGION": "westeurope", 
+        "KUBERNETES_AZURE_RESOURCE_GROUP_NAME": "kubernetes-poc-{{ KUBERNETES_UNIQUE_TAG }}", 
+        "KUBERNETES_AZURE_SECURITY_GROUPS": {
+            "default": {
+                "desc": "{{ KUBERNETES_CLUSTER_PREFIX }} default", 
+                "name": "{{ KUBERNETES_CLUSTER_PREFIX }}-default"
+            }, 
+            "etcd": {
+                "desc": "{{ KUBERNETES_CLUSTER_PREFIX }} etcd instances", 
+                "name": "{{ KUBERNETES_CLUSTER_PREFIX }}-etcd", 
+                "purge_rules": true, 
+                "rules": [
+                    {
+                        "access": "Allow", 
+                        "description": "allow-all", 
+                        "destination_port_range": "22-60000", 
+                        "direction": "Inbound", 
+                        "name": "allow-all", 
+                        "priority": 100, 
+                        "protocol": "*", 
+                        "source_address_prefix": "VirtualNetwork"
+                    }
+                ]
+            }, 
+            "jumpserver": {
+                "desc": "{{ KUBERNETES_CLUSTER_PREFIX }} {{ AZURE_BASTION_HOSTNAME }} instance", 
+                "name": "{{ KUBERNETES_CLUSTER_PREFIX }}-{{ AZURE_BASTION_HOSTNAME }}", 
+                "purge_rules": true, 
+                "rules": [
+                    {
+                        "access": "Allow", 
+                        "description": "Allows all inbound ssh traffic.", 
+                        "destination_port_range": 22, 
+                        "direction": "Inbound", 
+                        "name": "allow-ssh-in-all", 
+                        "priority": 100, 
+                        "protocol": "Tcp", 
+                        "source_address_prefix": "*"
+                    }, 
+                    {
+                        "access": "Deny", 
+                        "description": "Denys all inbound traffic.", 
+                        "destination_port_range": "*", 
+                        "direction": "Inbound", 
+                        "name": "deny-all", 
+                        "priority": 103, 
+                        "protocol": "*", 
+                        "source_address_prefix": "*"
+                    }
+                ]
+            }, 
+            "master": {
+                "desc": "{{ KUBERNETES_CLUSTER_PREFIX }} master instances", 
+                "name": "{{ KUBERNETES_CLUSTER_PREFIX }}-master", 
+                "purge_rules": true, 
+                "rules": [
+                    {
+                        "access": "Allow", 
+                        "description": "Allows inbound ssh traffic from managementsubnet.", 
+                        "destination_port_range": 22, 
+                        "direction": "Inbound", 
+                        "name": "allow-ssh-in", 
+                        "priority": 100, 
+                        "protocol": "Tcp", 
+                        "source_address_prefix": "{{ KUBERNETES_AZURE_VNET.subnets[KUBERNETES_AZURE_REGION][0].cidr }}"
+                    }, 
+                    {
+                        "access": "Allow", 
+                        "description": "allow-all", 
+                        "destination_port_range": "22-60000", 
+                        "direction": "Inbound", 
+                        "name": "allow-all", 
+                        "priority": 101, 
+                        "protocol": "*", 
+                        "source_address_prefix": "VirtualNetwork"
+                    }, 
+                    {
+                        "access": "Allow", 
+                        "description": "allow-http", 
+                        "destination_port_range": [
+                            6443
+                        ], 
+                        "direction": "Inbound", 
+                        "name": "allow-http", 
+                        "priority": 102, 
+                        "protocol": "*", 
+                        "source_address_prefix": "*"
+                    }
+                ]
+            }, 
+            "worker": {
+                "desc": "{{ KUBERNETES_CLUSTER_PREFIX }} nodes instances", 
+                "name": "{{ KUBERNETES_CLUSTER_PREFIX }}-nodes", 
+                "purge_rules": true, 
+                "rules": [
+                    {
+                        "access": "Allow", 
+                        "description": "Allows inbound ssh traffic from managementsubnet.", 
+                        "destination_port_range": 22, 
+                        "direction": "Inbound", 
+                        "name": "allow-ssh-in", 
+                        "priority": 100, 
+                        "protocol": "Tcp", 
+                        "source_address_prefix": "{{ KUBERNETES_AZURE_VNET.subnets[KUBERNETES_AZURE_REGION][0].cidr }}"
+                    }, 
+                    {
+                        "access": "Allow", 
+                        "description": "allow-all", 
+                        "destination_port_range": "22-60000", 
+                        "direction": "Inbound", 
+                        "name": "allow-all", 
+                        "priority": 101, 
+                        "protocol": "*", 
+                        "source_address_prefix": "VirtualNetwork"
+                    }, 
+                    {
+                        "access": "Allow", 
+                        "description": "allow-http", 
+                        "destination_port_range": [
+                            30080, 
+                            30443
+                        ], 
+                        "direction": "Inbound", 
+                        "name": "allow-http", 
+                        "priority": 102, 
+                        "protocol": "*", 
+                        "source_address_prefix": "*"
+                    }
+                ]
+            }
+        }, 
+        "KUBERNETES_AZURE_USER": [
+            {
+                "private_key_file": "~/.ssh/id_rsa", 
+                "pub_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCr5t57XvlxYniywYJ3N9Bckiyk/TFGIS6/54b128SH47djEFVIxi706R7qSHQgvPRBhgGLwc40++Ebfou/SmuOxzTvrJhT4vmUoEIlruJTExlS7gB2bLFQwWcxrYJpjJoxEEeBkgRWSoHTnZtoE1wSjPjTib2Nbuq5Uz65glRQ0I8uFJ09vtYKpaltkkZIZLlsnMYD0xXtUL5+FSZ9vsqtd+PSTBrN/OlwbWbelWhf0FrTjWX0nOdW1jKxSk6Sew+Y+3Pr1XK4gjXUYFgLQTP+1b37CUvqjavyE2cuhIb2bA8CI+k/HBBXgbntXTF5TxgXSfXEZjP7rDefLeLbO91pQKSAne1FCGNno8C4JdUikYt5I4m+545YnCcZATCVfpAxXMVZG4xH+E2b2h6druToyk/pY04HyveMsUKqXc3dYIWm4PO9OHrGUu5fDvhb8hBwKyuKYNwUrw7dXJEoAd11sn8yUwz2/5gUmGzTR1SMKSNoZGfGEVQ4INs50qbghs/orr/DQ04+WNoqFTLQ7sv2AyZwMolCINGOWpsIxjK2Rmwdw/qoawGa+YUbTZtiYr/q39mRtqYDptVCac5xKs60Un3UWzChdGHGbp912pmxvFuZY2o0r4TcTF9IYPH4z39d0vsZe616qmmZIlJZezSdxOo+gpMTg4bTMVjDG5k1LQ== vkushwah@ansible-mgmt\n", 
+                "state": "present", 
+                "username": "vkushwah"
+            }, 
+            {
+                "private_key_file": "~/.ssh/aws_scitechff.key", 
+                "pub_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC5MU1E6mmoDC2kim+FZ2tlhNdr6bHHOwejQ45/2uwpZ+FkZAvBwPt87SLx4ZAXlIdf9e5wo6qUZ2PDS/PQo7MSZezmKA6gNQjfM0hxjcPpGTmYvfs6R2B6zkJGVJuKVA+1MV8bTt/NeJ/0EoYzkTj+d1jOMBZ95MOe1iJhvUYNdnebgXKKPJ/VpACuA4sYiuNW7oyHtSUmRL7h0aGJD8tWZJl9tIQGZRoEUi7fK5no0QlO3G6FCuSaZvXL7vH2AJTDAbt/+lJvRRbf0Lsp+Kq+vwQdE2LFQvMpBT4HpWLniwIvAS2me65UMKQJS3bWUWeodZIGK4BoUvckZvtvnI+a3uh42Lgt+KXzDkyrVS+RJHM7vFoFY428KKaHi3xyvGAOxXRhZezCCSBJESHQ3QjivKAARABXsaANyXUzd8+Ub7psJnWP2oLneN3eIfcKIxphaOQjrpFMWIFk+OIQrbQq/hG15fVGuluCA4NEWiS8Q/noEVlHAB9UrLre0yVtzr1gBPdBIldmbEwOgvcTXvB2P7/rt8q1YyTxC7qXjQ3qpatMVOuY4Y4f01hzdNcN3i4aFfsBwt619IyT+g7k6zkL7GvdNXGIXD4jC3+NP1e5J0sVVnyv3N0m+mzY/4oFySfGHOyzFEoEZ8BBtsjQHzcxXTrc3vMnKKA9dGzBwdYjbQ== scitechff@scitech-gmbh.de\n", 
+                "state": "present", 
+                "username": "scitechff"
+            }, 
+            {
+                "private_key_file": "~/.ssh/aws_scitechff.key", 
+                "pub_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCzXUHjYKVRtOEXT5pzhJxfcqO3Fx905m7lRhy8yXlCaoa27RMNS1gC1GjhxXGAIPfUL+g/dmh+dG2BP803ffDo4W9J9U0kkSyA1JM2vYZ3/T54iARm7XQ/J5/fAS0bco4CHw2Xg2THepKnp6UZ+w/cc8Fpor3HMxEbvaRo9qOZrqRHr1qrfVLeM9eWARnZibC/MZMgCmwcPEWF/3vPbGgWX9exV96P5ZulesMOMLVIHkU7SP4RxMRbbofQ64C9FhzGHu2DinkIPt2/uUNAOmvzW1sbSq/QHbq4ZW4/+ZXP6B46wwCxMaFT8ULGbPOe1SvqUlh3LumD4qTxcIy3r8RgGSLwLeF3HeC8EY/H3ZQboURfTJA4ih8N4ZJMlaEhF4I0lTa610YTGuoj0O+2TB3GD4GJnlt3XiyVjSIawBxy7zuDFPTNSxSgSA3ksHX9DOc8qpZhX5PleDAlCCUCyKtWEx5klr9Yv/o6hTHuVj+Ry1oJaqidBtP+ab64xv3zcYS1OI3ehGbPj1kduus7o+7/jQkNLYsI0Bbh04npVw9DMD+MebjtXmw0QH16X6/doZuONyzB+44bl1JZQK4sLa3vacpT2PLLVZFrTOj/jwNytxd7FExTAq9COX3uPFrtyNrF2jnI5lglGEY3H6+x/2eZfxxq8b+a9nwGbkyHrWRd1w==\n", 
+                "state": "present", 
+                "username": "aati"
+            }
+        ], 
+        "KUBERNETES_AZURE_VM": {
+            "jumpserver": {
+                "admin_username": "{{ AZURE_ADMINUSER_NAME }}", 
+                "image": "{{ AZURE_IMAGE }}", 
+                "managed_disk_type": "Standard_LRS", 
+                "network_interfaces": "{{ KUBERNETES_AZURE_NIC[AZURE_BASTION_HOSTNAME].name }}", 
+                "public_ip_allocation_method": "Static", 
+                "ssh_password_enabled": false, 
+                "ssh_public_keys": [
+                    {
+                        "key_data": "{{ KUBERNETES_AZURE_USER[0].pub_key }}", 
+                        "path": "/home/{{ AZURE_ADMINUSER_NAME }}/.ssh/authorized_keys"
+                    }
+                ], 
+                "vm_size": "{{ AZURE_VM_SIZE }}"
+            }
+        }, 
+        "KUBERNETES_AZURE_VMSS": {
+            "master": {
+                "admin_username": "{{ AZURE_ADMINUSER_NAME }}", 
+                "capacity": 3, 
+                "image": "{{ AZURE_IMAGE }}", 
+                "load_balancer": "{{ KUBERNETES_AZURE_LB_MASTER }}", 
+                "managed_disk_type": "Standard_LRS", 
+                "security_group": "{{ KUBERNETES_AZURE_SECURITY_GROUPS['master'].name }}", 
+                "ssh_password_enabled": false, 
+                "ssh_public_keys": [
+                    {
+                        "key_data": "{{ KUBERNETES_AZURE_USER[0].pub_key }}", 
+                        "path": "/home/{{ AZURE_ADMINUSER_NAME }}/.ssh/authorized_keys"
+                    }
+                ], 
+                "subnet_name": "mastersubnet", 
+                "tier": "Standard", 
+                "upgrade_policy": "Manual", 
+                "virtual_network_name": "{{ KUBERNETES_AZURE_VNET.name }}", 
+                "vm_size": "{{ AZURE_KUBERNETES_VM_SIZE }}"
+            }, 
+            "worker": {
+                "admin_username": "{{ AZURE_ADMINUSER_NAME }}", 
+                "capacity": 2, 
+                "image": "{{ AZURE_IMAGE }}", 
+                "load_balancer": "{{ KUBERNETES_AZURE_LB_NODES }}", 
+                "managed_disk_type": "Standard_LRS", 
+                "security_group": "{{ KUBERNETES_AZURE_SECURITY_GROUPS['worker'].name }}", 
+                "ssh_password_enabled": false, 
+                "ssh_public_keys": [
+                    {
+                        "key_data": "{{ KUBERNETES_AZURE_USER[0].pub_key }}", 
+                        "path": "/home/{{ AZURE_ADMINUSER_NAME }}/.ssh/authorized_keys"
+                    }
+                ], 
+                "subnet_name": "nodesubnet", 
+                "tier": "Standard", 
+                "upgrade_policy": "Manual", 
+                "virtual_network_name": "{{ KUBERNETES_AZURE_VNET.name }}", 
+                "vm_size": "{{ AZURE_KUBERNETES_VM_SIZE }}"
+            }
+        }, 
+        "KUBERNETES_AZURE_VNET": {
+            "cidr": "172.29.0.0/16", 
+            "name": "{{ KUBERNETES_CLUSTER_PREFIX }}-vnet", 
+            "resource_group": "{{ KUBERNETES_AZURE_RESOURCE_GROUP_NAME }}", 
+            "subnets": {
+                "westeurope": [
+                    {
+                        "cidr": "172.29.0.0/24", 
+                        "name": "publicsubnet"
+                    }, 
+                    {
+                        "cidr": "172.29.1.0/24", 
+                        "name": "managementsubnet"
+                    }, 
+                    {
+                        "cidr": "172.29.2.0/24", 
+                        "name": "mastersubnet"
+                    }, 
+                    {
+                        "cidr": "172.29.3.0/24", 
+                        "name": "nodesubnet"
+                    }
+                ]
+            }
+        }, 
+        "KUBERNETES_BACKUP_VELERO_BLOB_CONTAINER": "velero", 
+        "KUBERNETES_BACKUP_VELERO_TIMEOUT": "2m0s", 
+        "KUBERNETES_CALICO_NETWORKING_VERSION": "1.7", 
+        "KUBERNETES_CALICO_VERSION": "v3.3", 
+        "KUBERNETES_CIDR_IP_RANGE": "10.12.0.0/16", 
+        "KUBERNETES_CIDR_WEAVE_IP_RANGE": "10.13.0.0/16", 
+        "KUBERNETES_CLUSTER_ENVIRONMENT": "test", 
+        "KUBERNETES_CLUSTER_PREFIX": "kubernetes-poc-{{ KUBERNETES_UNIQUE_TAG }}", 
+        "KUBERNETES_CNI_PLUGIN": "weave", 
+        "KUBERNETES_KUBELET_KUBEADM_KUBECTL": "", 
+        "KUBERNETES_RELEASE": "1.13.2", 
+        "KUBERNETES_UNIQUE_TAG": "vkushwahaloganal", 
+        "KUBERNETES_VERSION": "stable", 
+        "KUBERNETS_AZURE_SSH_NAT_RULE_NAME": "inboundssh", 
+        "PORT": {
+            "port1": {
+                "name": "http", 
+                "nodePort": 30080, 
+                "port": 80, 
+                "protocol": "TCP", 
+                "targetPort": 8080
+            }, 
+            "port2": {
+                "name": "https", 
+                "nodePort": 30443, 
+                "port": 443, 
+                "protocol": "TCP", 
+                "targetPort": 8443
+            }
+        }, 
+        "PREEXISTING_HOSTS": [
+            "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+            "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c"
+        ], 
+        "SSH_CONFIG_ADDITIONAL_PROXYCOMMAND": "", 
+        "SSH_CONFIG_ADDITIONAL_PROXYCOMMAND_PROXYCOMMAND": "", 
+        "SSH_CONFIG_PATH": "~/.ssh/config", 
+        "SSH_DIR": "~/.ssh", 
+        "SSH_USERKNOWNHOSTSFILE": "{{ SSH_DIR }}/{{ CLOUD_PROVIDER }}_{{ KUBERNETES_AZURE_REGION }}_{{ KUBERNETES_CLUSTER_PREFIX }}/known_hosts", 
+        "TILLER": {
+            "TILLER1": {
+                "role_tiller_deployment_namespace": "tiller-manager", 
+                "role_tiller_system_namespace": "tiller-namespace-manager", 
+                "rolebinding_tiller_deployment_namespace": "tiller-binding", 
+                "rolebinding_tiller_system_namespace": "tiller-namespace-binding", 
+                "serviceaccount": "tiller", 
+                "tiller_deployment_namespaces": [
+                    "myorg-users1"
+                ], 
+                "tiller_system_namespace": "myorg-system"
+            }, 
+            "TILLER2": {
+                "role_tiller_deployment_namespace": "tiller-manager", 
+                "role_tiller_system_namespace": "tiller-namespace-manager", 
+                "rolebinding_tiller_deployment_namespace": "tiller-binding", 
+                "rolebinding_tiller_system_namespace": "tiller-namespace-binding", 
+                "serviceaccount": "tiller", 
+                "tiller_deployment_namespaces": [
+                    "myorg-users2", 
+                    "myorg-users3"
+                ], 
+                "tiller_system_namespace": "myorg-system1"
+            }
+        }, 
+        "ansible_all_ipv4_addresses": [
+            "172.17.0.1", 
+            "10.100.225.4"
+        ], 
+        "ansible_all_ipv6_addresses": [
+            "fe80::42:1aff:fea8:c828", 
+            "fe80::20d:3aff:feb6:d79a"
+        ], 
+        "ansible_apparmor": {
+            "status": "disabled"
+        }, 
+        "ansible_architecture": "x86_64", 
+        "ansible_bios_date": "06/02/2017", 
+        "ansible_bios_version": "090007", 
+        "ansible_check_mode": false, 
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-3.10.0-957.12.2.el7.x86_64", 
+            "LANG": "en_US.UTF-8", 
+            "console": "ttyS0", 
+            "earlyprintk": "ttyS0", 
+            "ro": true, 
+            "root": "UUID=437f5efe-afcb-4d8f-99e0-a44d73dda2f9", 
+            "rootdelay": "300"
+        }, 
+        "ansible_connection": "local", 
+        "ansible_date_time": {
+            "date": "2019-09-09", 
+            "day": "09", 
+            "epoch": "1568042474", 
+            "hour": "15", 
+            "iso8601": "2019-09-09T15:21:14Z", 
+            "iso8601_basic": "20190909T152114659510", 
+            "iso8601_basic_short": "20190909T152114", 
+            "iso8601_micro": "2019-09-09T15:21:14.659621Z", 
+            "minute": "21", 
+            "month": "09", 
+            "second": "14", 
+            "time": "15:21:14", 
+            "tz": "UTC", 
+            "tz_offset": "+0000", 
+            "weekday": "Monday", 
+            "weekday_number": "1", 
+            "weeknumber": "36", 
+            "year": "2019"
+        }, 
+        "ansible_default_ipv4": {
+            "address": "10.100.225.4", 
+            "alias": "eth0", 
+            "broadcast": "10.100.225.255", 
+            "gateway": "10.100.225.1", 
+            "interface": "eth0", 
+            "macaddress": "00:0d:3a:b6:d7:9a", 
+            "mtu": 1500, 
+            "netmask": "255.255.255.0", 
+            "network": "10.100.225.0", 
+            "type": "ether"
+        }, 
+        "ansible_default_ipv6": {}, 
+        "ansible_device_links": {
+            "ids": {
+                "sda": [
+                    "scsi-360022480dbe10dfcb2a3d69e71771967", 
+                    "wwn-0x60022480dbe10dfcb2a3d69e71771967"
+                ], 
+                "sda1": [
+                    "scsi-360022480dbe10dfcb2a3d69e71771967-part1", 
+                    "wwn-0x60022480dbe10dfcb2a3d69e71771967-part1"
+                ], 
+                "sda2": [
+                    "scsi-360022480dbe10dfcb2a3d69e71771967-part2", 
+                    "wwn-0x60022480dbe10dfcb2a3d69e71771967-part2"
+                ], 
+                "sdb": [
+                    "scsi-360022480248b3d682ace6f829d4e4524", 
+                    "wwn-0x60022480248b3d682ace6f829d4e4524"
+                ], 
+                "sdb1": [
+                    "scsi-360022480248b3d682ace6f829d4e4524-part1", 
+                    "wwn-0x60022480248b3d682ace6f829d4e4524-part1"
+                ]
+            }, 
+            "labels": {}, 
+            "masters": {}, 
+            "uuids": {
+                "sda1": [
+                    "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                ], 
+                "sda2": [
+                    "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                ], 
+                "sdb1": [
+                    "3a8d3690-97f3-48dd-a784-f5141e335677"
+                ]
+            }
+        }, 
+        "ansible_devices": {
+            "fd0": {
+                "holders": [], 
+                "host": "", 
+                "links": {
+                    "ids": [], 
+                    "labels": [], 
+                    "masters": [], 
+                    "uuids": []
+                }, 
+                "model": null, 
+                "partitions": {}, 
+                "removable": "1", 
+                "rotational": "1", 
+                "sas_address": null, 
+                "sas_device_handle": null, 
+                "scheduler_mode": "deadline", 
+                "sectors": "8", 
+                "sectorsize": "512", 
+                "size": "4.00 KB", 
+                "support_discard": "0", 
+                "vendor": null, 
+                "virtual": 1
+            }, 
+            "sda": {
+                "holders": [], 
+                "host": "", 
+                "links": {
+                    "ids": [
+                        "scsi-360022480dbe10dfcb2a3d69e71771967", 
+                        "wwn-0x60022480dbe10dfcb2a3d69e71771967"
+                    ], 
+                    "labels": [], 
+                    "masters": [], 
+                    "uuids": []
+                }, 
+                "model": "Virtual Disk", 
+                "partitions": {
+                    "sda1": {
+                        "holders": [], 
+                        "links": {
+                            "ids": [
+                                "scsi-360022480dbe10dfcb2a3d69e71771967-part1", 
+                                "wwn-0x60022480dbe10dfcb2a3d69e71771967-part1"
+                            ], 
+                            "labels": [], 
+                            "masters": [], 
+                            "uuids": [
+                                "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                            ]
+                        }, 
+                        "sectors": "1024000", 
+                        "sectorsize": 512, 
+                        "size": "500.00 MB", 
+                        "start": "2048", 
+                        "uuid": "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                    }, 
+                    "sda2": {
+                        "holders": [], 
+                        "links": {
+                            "ids": [
+                                "scsi-360022480dbe10dfcb2a3d69e71771967-part2", 
+                                "wwn-0x60022480dbe10dfcb2a3d69e71771967-part2"
+                            ], 
+                            "labels": [], 
+                            "masters": [], 
+                            "uuids": [
+                                "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                            ]
+                        }, 
+                        "sectors": "66082816", 
+                        "sectorsize": 512, 
+                        "size": "31.51 GB", 
+                        "start": "1026048", 
+                        "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "sas_address": null, 
+                "sas_device_handle": null, 
+                "scheduler_mode": "deadline", 
+                "sectors": "67108864", 
+                "sectorsize": "512", 
+                "size": "32.00 GB", 
+                "support_discard": "2097152", 
+                "vendor": "Msft", 
+                "virtual": 1, 
+                "wwn": "0x60022480dbe10dfcb2a3d69e71771967"
+            }, 
+            "sdb": {
+                "holders": [], 
+                "host": "", 
+                "links": {
+                    "ids": [
+                        "scsi-360022480248b3d682ace6f829d4e4524", 
+                        "wwn-0x60022480248b3d682ace6f829d4e4524"
+                    ], 
+                    "labels": [], 
+                    "masters": [], 
+                    "uuids": []
+                }, 
+                "model": "Virtual Disk", 
+                "partitions": {
+                    "sdb1": {
+                        "holders": [], 
+                        "links": {
+                            "ids": [
+                                "scsi-360022480248b3d682ace6f829d4e4524-part1", 
+                                "wwn-0x60022480248b3d682ace6f829d4e4524-part1"
+                            ], 
+                            "labels": [], 
+                            "masters": [], 
+                            "uuids": [
+                                "3a8d3690-97f3-48dd-a784-f5141e335677"
+                            ]
+                        }, 
+                        "sectors": "67106688", 
+                        "sectorsize": 512, 
+                        "size": "32.00 GB", 
+                        "start": "128", 
+                        "uuid": "3a8d3690-97f3-48dd-a784-f5141e335677"
+                    }
+                }, 
+                "removable": "0", 
+                "rotational": "1", 
+                "sas_address": null, 
+                "sas_device_handle": null, 
+                "scheduler_mode": "deadline", 
+                "sectors": "67108864", 
+                "sectorsize": "512", 
+                "size": "32.00 GB", 
+                "support_discard": "2097152", 
+                "vendor": "Msft", 
+                "virtual": 1, 
+                "wwn": "0x60022480248b3d682ace6f829d4e4524"
+            }
+        }, 
+        "ansible_diff_mode": false, 
+        "ansible_distribution": "RedHat", 
+        "ansible_distribution_file_parsed": true, 
+        "ansible_distribution_file_path": "/etc/redhat-release", 
+        "ansible_distribution_file_search_string": "Red Hat", 
+        "ansible_distribution_file_variety": "RedHat", 
+        "ansible_distribution_major_version": "7", 
+        "ansible_distribution_release": "Maipo", 
+        "ansible_distribution_version": "7.6", 
+        "ansible_dns": {
+            "nameservers": [
+                "168.63.129.16"
+            ], 
+            "search": [
+                "2pp3ck4pkznu5cynwh5a1ntp3g.fx.internal.cloudapp.net"
+            ]
+        }, 
+        "ansible_docker0": {
+            "active": false, 
+            "device": "docker0", 
+            "features": {
+                "busy_poll": "off [fixed]", 
+                "fcoe_mtu": "off [fixed]", 
+                "generic_receive_offload": "on", 
+                "generic_segmentation_offload": "on", 
+                "highdma": "on", 
+                "hw_tc_offload": "off [fixed]", 
+                "l2_fwd_offload": "off [fixed]", 
+                "large_receive_offload": "off [fixed]", 
+                "loopback": "off [fixed]", 
+                "netns_local": "on [fixed]", 
+                "ntuple_filters": "off [fixed]", 
+                "receive_hashing": "off [fixed]", 
+                "rx_all": "off [fixed]", 
+                "rx_checksumming": "off [fixed]", 
+                "rx_fcs": "off [fixed]", 
+                "rx_gro_hw": "off [fixed]", 
+                "rx_udp_tunnel_port_offload": "off [fixed]", 
+                "rx_vlan_filter": "off [fixed]", 
+                "rx_vlan_offload": "off [fixed]", 
+                "rx_vlan_stag_filter": "off [fixed]", 
+                "rx_vlan_stag_hw_parse": "off [fixed]", 
+                "scatter_gather": "on", 
+                "tcp_segmentation_offload": "on", 
+                "tx_checksum_fcoe_crc": "off [fixed]", 
+                "tx_checksum_ip_generic": "on", 
+                "tx_checksum_ipv4": "off [fixed]", 
+                "tx_checksum_ipv6": "off [fixed]", 
+                "tx_checksum_sctp": "off [fixed]", 
+                "tx_checksumming": "on", 
+                "tx_fcoe_segmentation": "on", 
+                "tx_gre_csum_segmentation": "on", 
+                "tx_gre_segmentation": "on", 
+                "tx_gso_partial": "on", 
+                "tx_gso_robust": "on", 
+                "tx_ipip_segmentation": "on", 
+                "tx_lockless": "on [fixed]", 
+                "tx_nocache_copy": "off", 
+                "tx_scatter_gather": "on", 
+                "tx_scatter_gather_fraglist": "on", 
+                "tx_sctp_segmentation": "on", 
+                "tx_sit_segmentation": "on", 
+                "tx_tcp6_segmentation": "on", 
+                "tx_tcp_ecn_segmentation": "on", 
+                "tx_tcp_mangleid_segmentation": "on", 
+                "tx_tcp_segmentation": "on", 
+                "tx_udp_tnl_csum_segmentation": "on", 
+                "tx_udp_tnl_segmentation": "on", 
+                "tx_vlan_offload": "on", 
+                "tx_vlan_stag_hw_insert": "on", 
+                "udp_fragmentation_offload": "on", 
+                "vlan_challenged": "off [fixed]"
+            }, 
+            "hw_timestamp_filters": [], 
+            "id": "8000.02421aa8c828", 
+            "interfaces": [], 
+            "ipv4": {
+                "address": "172.17.0.1", 
+                "broadcast": "global", 
+                "netmask": "255.255.0.0", 
+                "network": "172.17.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::42:1aff:fea8:c828", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "02:42:1a:a8:c8:28", 
+            "mtu": 1500, 
+            "promisc": false, 
+            "stp": false, 
+            "timestamping": [
+                "rx_software", 
+                "software"
+            ], 
+            "type": "bridge"
+        }, 
+        "ansible_domain": "", 
+        "ansible_effective_group_id": 0, 
+        "ansible_effective_user_id": 0, 
+        "ansible_env": {
+            "DISPLAY": "localhost:12.0", 
+            "HISTSIZE": "1000", 
+            "HOME": "/root", 
+            "HOSTNAME": "ansible-mgmt", 
+            "LANG": "en_US.UTF-8", 
+            "LOGNAME": "root", 
+            "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:", 
+            "MAIL": "/var/spool/mail/vkushwah", 
+            "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", 
+            "PWD": "/home/vkushwah/Daimler_Juno/Juno_Git/k8s_tools/playbooks", 
+            "SHELL": "/bin/bash", 
+            "SHLVL": "1", 
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-qhupukqbmncwhzjivdvebqgraiwpgmoo ; /usr/bin/python2 /home/vkushwah/.ansible/tmp/ansible-tmp-1568042472.96-76116930331927/AnsiballZ_setup.py", 
+            "SUDO_GID": "1004", 
+            "SUDO_UID": "1003", 
+            "SUDO_USER": "vkushwah", 
+            "TERM": "xterm", 
+            "USER": "root", 
+            "USERNAME": "root", 
+            "XDG_SESSION_ID": "2499", 
+            "_": "/usr/bin/python2"
+        }, 
+        "ansible_eth0": {
+            "active": true, 
+            "device": "eth0", 
+            "features": {
+                "busy_poll": "off [fixed]", 
+                "fcoe_mtu": "off [fixed]", 
+                "generic_receive_offload": "on", 
+                "generic_segmentation_offload": "on", 
+                "highdma": "on [fixed]", 
+                "hw_tc_offload": "off [fixed]", 
+                "l2_fwd_offload": "off [fixed]", 
+                "large_receive_offload": "off [fixed]", 
+                "loopback": "off [fixed]", 
+                "netns_local": "off [fixed]", 
+                "ntuple_filters": "off [fixed]", 
+                "receive_hashing": "off [fixed]", 
+                "rx_all": "off [fixed]", 
+                "rx_checksumming": "on", 
+                "rx_fcs": "off [fixed]", 
+                "rx_gro_hw": "off [fixed]", 
+                "rx_udp_tunnel_port_offload": "off [fixed]", 
+                "rx_vlan_filter": "off [fixed]", 
+                "rx_vlan_offload": "on [fixed]", 
+                "rx_vlan_stag_filter": "off [fixed]", 
+                "rx_vlan_stag_hw_parse": "off [fixed]", 
+                "scatter_gather": "on", 
+                "tcp_segmentation_offload": "on", 
+                "tx_checksum_fcoe_crc": "off [fixed]", 
+                "tx_checksum_ip_generic": "off [fixed]", 
+                "tx_checksum_ipv4": "on", 
+                "tx_checksum_ipv6": "on", 
+                "tx_checksum_sctp": "off [fixed]", 
+                "tx_checksumming": "on", 
+                "tx_fcoe_segmentation": "off [fixed]", 
+                "tx_gre_csum_segmentation": "off [fixed]", 
+                "tx_gre_segmentation": "off [fixed]", 
+                "tx_gso_partial": "off [fixed]", 
+                "tx_gso_robust": "off [fixed]", 
+                "tx_ipip_segmentation": "off [fixed]", 
+                "tx_lockless": "off [fixed]", 
+                "tx_nocache_copy": "off", 
+                "tx_scatter_gather": "on [fixed]", 
+                "tx_scatter_gather_fraglist": "off [fixed]", 
+                "tx_sctp_segmentation": "off [fixed]", 
+                "tx_sit_segmentation": "off [fixed]", 
+                "tx_tcp6_segmentation": "on", 
+                "tx_tcp_ecn_segmentation": "off [fixed]", 
+                "tx_tcp_mangleid_segmentation": "off", 
+                "tx_tcp_segmentation": "on", 
+                "tx_udp_tnl_csum_segmentation": "off [fixed]", 
+                "tx_udp_tnl_segmentation": "off [fixed]", 
+                "tx_vlan_offload": "on [fixed]", 
+                "tx_vlan_stag_hw_insert": "off [fixed]", 
+                "udp_fragmentation_offload": "off [fixed]", 
+                "vlan_challenged": "off [fixed]"
+            }, 
+            "hw_timestamp_filters": [], 
+            "ipv4": {
+                "address": "10.100.225.4", 
+                "broadcast": "10.100.225.255", 
+                "netmask": "255.255.255.0", 
+                "network": "10.100.225.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "fe80::20d:3aff:feb6:d79a", 
+                    "prefix": "64", 
+                    "scope": "link"
+                }
+            ], 
+            "macaddress": "00:0d:3a:b6:d7:9a", 
+            "module": "hv_netvsc", 
+            "mtu": 1500, 
+            "pciid": "000d3ab6-d79a-000d-3ab6-d79a000d3ab6", 
+            "promisc": false, 
+            "speed": 40000, 
+            "timestamping": [
+                "tx_software", 
+                "rx_software", 
+                "software"
+            ], 
+            "type": "ether"
+        }, 
+        "ansible_facts": {
+            "_facts_gathered": true, 
+            "all_ipv4_addresses": [
+                "172.17.0.1", 
+                "10.100.225.4"
+            ], 
+            "all_ipv6_addresses": [
+                "fe80::42:1aff:fea8:c828", 
+                "fe80::20d:3aff:feb6:d79a"
+            ], 
+            "ansible_local": {}, 
+            "apparmor": {
+                "status": "disabled"
+            }, 
+            "architecture": "x86_64", 
+            "bios_date": "06/02/2017", 
+            "bios_version": "090007", 
+            "cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-3.10.0-957.12.2.el7.x86_64", 
+                "LANG": "en_US.UTF-8", 
+                "console": "ttyS0", 
+                "earlyprintk": "ttyS0", 
+                "ro": true, 
+                "root": "UUID=437f5efe-afcb-4d8f-99e0-a44d73dda2f9", 
+                "rootdelay": "300"
+            }, 
+            "date_time": {
+                "date": "2019-09-09", 
+                "day": "09", 
+                "epoch": "1568042474", 
+                "hour": "15", 
+                "iso8601": "2019-09-09T15:21:14Z", 
+                "iso8601_basic": "20190909T152114659510", 
+                "iso8601_basic_short": "20190909T152114", 
+                "iso8601_micro": "2019-09-09T15:21:14.659621Z", 
+                "minute": "21", 
+                "month": "09", 
+                "second": "14", 
+                "time": "15:21:14", 
+                "tz": "UTC", 
+                "tz_offset": "+0000", 
+                "weekday": "Monday", 
+                "weekday_number": "1", 
+                "weeknumber": "36", 
+                "year": "2019"
+            }, 
+            "default_ipv4": {
+                "address": "10.100.225.4", 
+                "alias": "eth0", 
+                "broadcast": "10.100.225.255", 
+                "gateway": "10.100.225.1", 
+                "interface": "eth0", 
+                "macaddress": "00:0d:3a:b6:d7:9a", 
+                "mtu": 1500, 
+                "netmask": "255.255.255.0", 
+                "network": "10.100.225.0", 
+                "type": "ether"
+            }, 
+            "default_ipv6": {}, 
+            "device_links": {
+                "ids": {
+                    "sda": [
+                        "scsi-360022480dbe10dfcb2a3d69e71771967", 
+                        "wwn-0x60022480dbe10dfcb2a3d69e71771967"
+                    ], 
+                    "sda1": [
+                        "scsi-360022480dbe10dfcb2a3d69e71771967-part1", 
+                        "wwn-0x60022480dbe10dfcb2a3d69e71771967-part1"
+                    ], 
+                    "sda2": [
+                        "scsi-360022480dbe10dfcb2a3d69e71771967-part2", 
+                        "wwn-0x60022480dbe10dfcb2a3d69e71771967-part2"
+                    ], 
+                    "sdb": [
+                        "scsi-360022480248b3d682ace6f829d4e4524", 
+                        "wwn-0x60022480248b3d682ace6f829d4e4524"
+                    ], 
+                    "sdb1": [
+                        "scsi-360022480248b3d682ace6f829d4e4524-part1", 
+                        "wwn-0x60022480248b3d682ace6f829d4e4524-part1"
+                    ]
+                }, 
+                "labels": {}, 
+                "masters": {}, 
+                "uuids": {
+                    "sda1": [
+                        "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                    ], 
+                    "sda2": [
+                        "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                    ], 
+                    "sdb1": [
+                        "3a8d3690-97f3-48dd-a784-f5141e335677"
+                    ]
+                }
+            }, 
+            "devices": {
+                "fd0": {
+                    "holders": [], 
+                    "host": "", 
+                    "links": {
+                        "ids": [], 
+                        "labels": [], 
+                        "masters": [], 
+                        "uuids": []
+                    }, 
+                    "model": null, 
+                    "partitions": {}, 
+                    "removable": "1", 
+                    "rotational": "1", 
+                    "sas_address": null, 
+                    "sas_device_handle": null, 
+                    "scheduler_mode": "deadline", 
+                    "sectors": "8", 
+                    "sectorsize": "512", 
+                    "size": "4.00 KB", 
+                    "support_discard": "0", 
+                    "vendor": null, 
+                    "virtual": 1
+                }, 
+                "sda": {
+                    "holders": [], 
+                    "host": "", 
+                    "links": {
+                        "ids": [
+                            "scsi-360022480dbe10dfcb2a3d69e71771967", 
+                            "wwn-0x60022480dbe10dfcb2a3d69e71771967"
+                        ], 
+                        "labels": [], 
+                        "masters": [], 
+                        "uuids": []
+                    }, 
+                    "model": "Virtual Disk", 
+                    "partitions": {
+                        "sda1": {
+                            "holders": [], 
+                            "links": {
+                                "ids": [
+                                    "scsi-360022480dbe10dfcb2a3d69e71771967-part1", 
+                                    "wwn-0x60022480dbe10dfcb2a3d69e71771967-part1"
+                                ], 
+                                "labels": [], 
+                                "masters": [], 
+                                "uuids": [
+                                    "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                                ]
+                            }, 
+                            "sectors": "1024000", 
+                            "sectorsize": 512, 
+                            "size": "500.00 MB", 
+                            "start": "2048", 
+                            "uuid": "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                        }, 
+                        "sda2": {
+                            "holders": [], 
+                            "links": {
+                                "ids": [
+                                    "scsi-360022480dbe10dfcb2a3d69e71771967-part2", 
+                                    "wwn-0x60022480dbe10dfcb2a3d69e71771967-part2"
+                                ], 
+                                "labels": [], 
+                                "masters": [], 
+                                "uuids": [
+                                    "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                                ]
+                            }, 
+                            "sectors": "66082816", 
+                            "sectorsize": 512, 
+                            "size": "31.51 GB", 
+                            "start": "1026048", 
+                            "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                        }
+                    }, 
+                    "removable": "0", 
+                    "rotational": "1", 
+                    "sas_address": null, 
+                    "sas_device_handle": null, 
+                    "scheduler_mode": "deadline", 
+                    "sectors": "67108864", 
+                    "sectorsize": "512", 
+                    "size": "32.00 GB", 
+                    "support_discard": "2097152", 
+                    "vendor": "Msft", 
+                    "virtual": 1, 
+                    "wwn": "0x60022480dbe10dfcb2a3d69e71771967"
+                }, 
+                "sdb": {
+                    "holders": [], 
+                    "host": "", 
+                    "links": {
+                        "ids": [
+                            "scsi-360022480248b3d682ace6f829d4e4524", 
+                            "wwn-0x60022480248b3d682ace6f829d4e4524"
+                        ], 
+                        "labels": [], 
+                        "masters": [], 
+                        "uuids": []
+                    }, 
+                    "model": "Virtual Disk", 
+                    "partitions": {
+                        "sdb1": {
+                            "holders": [], 
+                            "links": {
+                                "ids": [
+                                    "scsi-360022480248b3d682ace6f829d4e4524-part1", 
+                                    "wwn-0x60022480248b3d682ace6f829d4e4524-part1"
+                                ], 
+                                "labels": [], 
+                                "masters": [], 
+                                "uuids": [
+                                    "3a8d3690-97f3-48dd-a784-f5141e335677"
+                                ]
+                            }, 
+                            "sectors": "67106688", 
+                            "sectorsize": 512, 
+                            "size": "32.00 GB", 
+                            "start": "128", 
+                            "uuid": "3a8d3690-97f3-48dd-a784-f5141e335677"
+                        }
+                    }, 
+                    "removable": "0", 
+                    "rotational": "1", 
+                    "sas_address": null, 
+                    "sas_device_handle": null, 
+                    "scheduler_mode": "deadline", 
+                    "sectors": "67108864", 
+                    "sectorsize": "512", 
+                    "size": "32.00 GB", 
+                    "support_discard": "2097152", 
+                    "vendor": "Msft", 
+                    "virtual": 1, 
+                    "wwn": "0x60022480248b3d682ace6f829d4e4524"
+                }
+            }, 
+            "distribution": "RedHat", 
+            "distribution_file_parsed": true, 
+            "distribution_file_path": "/etc/redhat-release", 
+            "distribution_file_search_string": "Red Hat", 
+            "distribution_file_variety": "RedHat", 
+            "distribution_major_version": "7", 
+            "distribution_release": "Maipo", 
+            "distribution_version": "7.6", 
+            "dns": {
+                "nameservers": [
+                    "168.63.129.16"
+                ], 
+                "search": [
+                    "2pp3ck4pkznu5cynwh5a1ntp3g.fx.internal.cloudapp.net"
+                ]
+            }, 
+            "docker0": {
+                "active": false, 
+                "device": "docker0", 
+                "features": {
+                    "busy_poll": "off [fixed]", 
+                    "fcoe_mtu": "off [fixed]", 
+                    "generic_receive_offload": "on", 
+                    "generic_segmentation_offload": "on", 
+                    "highdma": "on", 
+                    "hw_tc_offload": "off [fixed]", 
+                    "l2_fwd_offload": "off [fixed]", 
+                    "large_receive_offload": "off [fixed]", 
+                    "loopback": "off [fixed]", 
+                    "netns_local": "on [fixed]", 
+                    "ntuple_filters": "off [fixed]", 
+                    "receive_hashing": "off [fixed]", 
+                    "rx_all": "off [fixed]", 
+                    "rx_checksumming": "off [fixed]", 
+                    "rx_fcs": "off [fixed]", 
+                    "rx_gro_hw": "off [fixed]", 
+                    "rx_udp_tunnel_port_offload": "off [fixed]", 
+                    "rx_vlan_filter": "off [fixed]", 
+                    "rx_vlan_offload": "off [fixed]", 
+                    "rx_vlan_stag_filter": "off [fixed]", 
+                    "rx_vlan_stag_hw_parse": "off [fixed]", 
+                    "scatter_gather": "on", 
+                    "tcp_segmentation_offload": "on", 
+                    "tx_checksum_fcoe_crc": "off [fixed]", 
+                    "tx_checksum_ip_generic": "on", 
+                    "tx_checksum_ipv4": "off [fixed]", 
+                    "tx_checksum_ipv6": "off [fixed]", 
+                    "tx_checksum_sctp": "off [fixed]", 
+                    "tx_checksumming": "on", 
+                    "tx_fcoe_segmentation": "on", 
+                    "tx_gre_csum_segmentation": "on", 
+                    "tx_gre_segmentation": "on", 
+                    "tx_gso_partial": "on", 
+                    "tx_gso_robust": "on", 
+                    "tx_ipip_segmentation": "on", 
+                    "tx_lockless": "on [fixed]", 
+                    "tx_nocache_copy": "off", 
+                    "tx_scatter_gather": "on", 
+                    "tx_scatter_gather_fraglist": "on", 
+                    "tx_sctp_segmentation": "on", 
+                    "tx_sit_segmentation": "on", 
+                    "tx_tcp6_segmentation": "on", 
+                    "tx_tcp_ecn_segmentation": "on", 
+                    "tx_tcp_mangleid_segmentation": "on", 
+                    "tx_tcp_segmentation": "on", 
+                    "tx_udp_tnl_csum_segmentation": "on", 
+                    "tx_udp_tnl_segmentation": "on", 
+                    "tx_vlan_offload": "on", 
+                    "tx_vlan_stag_hw_insert": "on", 
+                    "udp_fragmentation_offload": "on", 
+                    "vlan_challenged": "off [fixed]"
+                }, 
+                "hw_timestamp_filters": [], 
+                "id": "8000.02421aa8c828", 
+                "interfaces": [], 
+                "ipv4": {
+                    "address": "172.17.0.1", 
+                    "broadcast": "global", 
+                    "netmask": "255.255.0.0", 
+                    "network": "172.17.0.0"
+                }, 
+                "ipv6": [
+                    {
+                        "address": "fe80::42:1aff:fea8:c828", 
+                        "prefix": "64", 
+                        "scope": "link"
+                    }
+                ], 
+                "macaddress": "02:42:1a:a8:c8:28", 
+                "mtu": 1500, 
+                "promisc": false, 
+                "stp": false, 
+                "timestamping": [
+                    "rx_software", 
+                    "software"
+                ], 
+                "type": "bridge"
+            }, 
+            "domain": "", 
+            "effective_group_id": 0, 
+            "effective_user_id": 0, 
+            "env": {
+                "DISPLAY": "localhost:12.0", 
+                "HISTSIZE": "1000", 
+                "HOME": "/root", 
+                "HOSTNAME": "ansible-mgmt", 
+                "LANG": "en_US.UTF-8", 
+                "LOGNAME": "root", 
+                "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:", 
+                "MAIL": "/var/spool/mail/vkushwah", 
+                "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", 
+                "PWD": "/home/vkushwah/Daimler_Juno/Juno_Git/k8s_tools/playbooks", 
+                "SHELL": "/bin/bash", 
+                "SHLVL": "1", 
+                "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-qhupukqbmncwhzjivdvebqgraiwpgmoo ; /usr/bin/python2 /home/vkushwah/.ansible/tmp/ansible-tmp-1568042472.96-76116930331927/AnsiballZ_setup.py", 
+                "SUDO_GID": "1004", 
+                "SUDO_UID": "1003", 
+                "SUDO_USER": "vkushwah", 
+                "TERM": "xterm", 
+                "USER": "root", 
+                "USERNAME": "root", 
+                "XDG_SESSION_ID": "2499", 
+                "_": "/usr/bin/python2"
+            }, 
+            "eth0": {
+                "active": true, 
+                "device": "eth0", 
+                "features": {
+                    "busy_poll": "off [fixed]", 
+                    "fcoe_mtu": "off [fixed]", 
+                    "generic_receive_offload": "on", 
+                    "generic_segmentation_offload": "on", 
+                    "highdma": "on [fixed]", 
+                    "hw_tc_offload": "off [fixed]", 
+                    "l2_fwd_offload": "off [fixed]", 
+                    "large_receive_offload": "off [fixed]", 
+                    "loopback": "off [fixed]", 
+                    "netns_local": "off [fixed]", 
+                    "ntuple_filters": "off [fixed]", 
+                    "receive_hashing": "off [fixed]", 
+                    "rx_all": "off [fixed]", 
+                    "rx_checksumming": "on", 
+                    "rx_fcs": "off [fixed]", 
+                    "rx_gro_hw": "off [fixed]", 
+                    "rx_udp_tunnel_port_offload": "off [fixed]", 
+                    "rx_vlan_filter": "off [fixed]", 
+                    "rx_vlan_offload": "on [fixed]", 
+                    "rx_vlan_stag_filter": "off [fixed]", 
+                    "rx_vlan_stag_hw_parse": "off [fixed]", 
+                    "scatter_gather": "on", 
+                    "tcp_segmentation_offload": "on", 
+                    "tx_checksum_fcoe_crc": "off [fixed]", 
+                    "tx_checksum_ip_generic": "off [fixed]", 
+                    "tx_checksum_ipv4": "on", 
+                    "tx_checksum_ipv6": "on", 
+                    "tx_checksum_sctp": "off [fixed]", 
+                    "tx_checksumming": "on", 
+                    "tx_fcoe_segmentation": "off [fixed]", 
+                    "tx_gre_csum_segmentation": "off [fixed]", 
+                    "tx_gre_segmentation": "off [fixed]", 
+                    "tx_gso_partial": "off [fixed]", 
+                    "tx_gso_robust": "off [fixed]", 
+                    "tx_ipip_segmentation": "off [fixed]", 
+                    "tx_lockless": "off [fixed]", 
+                    "tx_nocache_copy": "off", 
+                    "tx_scatter_gather": "on [fixed]", 
+                    "tx_scatter_gather_fraglist": "off [fixed]", 
+                    "tx_sctp_segmentation": "off [fixed]", 
+                    "tx_sit_segmentation": "off [fixed]", 
+                    "tx_tcp6_segmentation": "on", 
+                    "tx_tcp_ecn_segmentation": "off [fixed]", 
+                    "tx_tcp_mangleid_segmentation": "off", 
+                    "tx_tcp_segmentation": "on", 
+                    "tx_udp_tnl_csum_segmentation": "off [fixed]", 
+                    "tx_udp_tnl_segmentation": "off [fixed]", 
+                    "tx_vlan_offload": "on [fixed]", 
+                    "tx_vlan_stag_hw_insert": "off [fixed]", 
+                    "udp_fragmentation_offload": "off [fixed]", 
+                    "vlan_challenged": "off [fixed]"
+                }, 
+                "hw_timestamp_filters": [], 
+                "ipv4": {
+                    "address": "10.100.225.4", 
+                    "broadcast": "10.100.225.255", 
+                    "netmask": "255.255.255.0", 
+                    "network": "10.100.225.0"
+                }, 
+                "ipv6": [
+                    {
+                        "address": "fe80::20d:3aff:feb6:d79a", 
+                        "prefix": "64", 
+                        "scope": "link"
+                    }
+                ], 
+                "macaddress": "00:0d:3a:b6:d7:9a", 
+                "module": "hv_netvsc", 
+                "mtu": 1500, 
+                "pciid": "000d3ab6-d79a-000d-3ab6-d79a000d3ab6", 
+                "promisc": false, 
+                "speed": 40000, 
+                "timestamping": [
+                    "tx_software", 
+                    "rx_software", 
+                    "software"
+                ], 
+                "type": "ether"
+            }, 
+            "fibre_channel_wwn": [], 
+            "fips": false, 
+            "form_factor": "Desktop", 
+            "fqdn": "ansible-mgmt", 
+            "gather_subset": [
+                "all"
+            ], 
+            "hostname": "ansible-mgmt", 
+            "hostnqn": "", 
+            "interfaces": [
+                "lo", 
+                "docker0", 
+                "eth0"
+            ], 
+            "is_chroot": false, 
+            "iscsi_iqn": "", 
+            "kernel": "3.10.0-957.12.2.el7.x86_64", 
+            "lo": {
+                "active": true, 
+                "device": "lo", 
+                "features": {
+                    "busy_poll": "off [fixed]", 
+                    "fcoe_mtu": "off [fixed]", 
+                    "generic_receive_offload": "on", 
+                    "generic_segmentation_offload": "on", 
+                    "highdma": "on [fixed]", 
+                    "hw_tc_offload": "off [fixed]", 
+                    "l2_fwd_offload": "off [fixed]", 
+                    "large_receive_offload": "off [fixed]", 
+                    "loopback": "on [fixed]", 
+                    "netns_local": "on [fixed]", 
+                    "ntuple_filters": "off [fixed]", 
+                    "receive_hashing": "off [fixed]", 
+                    "rx_all": "off [fixed]", 
+                    "rx_checksumming": "on [fixed]", 
+                    "rx_fcs": "off [fixed]", 
+                    "rx_gro_hw": "off [fixed]", 
+                    "rx_udp_tunnel_port_offload": "off [fixed]", 
+                    "rx_vlan_filter": "off [fixed]", 
+                    "rx_vlan_offload": "off [fixed]", 
+                    "rx_vlan_stag_filter": "off [fixed]", 
+                    "rx_vlan_stag_hw_parse": "off [fixed]", 
+                    "scatter_gather": "on", 
+                    "tcp_segmentation_offload": "on", 
+                    "tx_checksum_fcoe_crc": "off [fixed]", 
+                    "tx_checksum_ip_generic": "on [fixed]", 
+                    "tx_checksum_ipv4": "off [fixed]", 
+                    "tx_checksum_ipv6": "off [fixed]", 
+                    "tx_checksum_sctp": "on [fixed]", 
+                    "tx_checksumming": "on", 
+                    "tx_fcoe_segmentation": "off [fixed]", 
+                    "tx_gre_csum_segmentation": "off [fixed]", 
+                    "tx_gre_segmentation": "off [fixed]", 
+                    "tx_gso_partial": "off [fixed]", 
+                    "tx_gso_robust": "off [fixed]", 
+                    "tx_ipip_segmentation": "off [fixed]", 
+                    "tx_lockless": "on [fixed]", 
+                    "tx_nocache_copy": "off [fixed]", 
+                    "tx_scatter_gather": "on [fixed]", 
+                    "tx_scatter_gather_fraglist": "on [fixed]", 
+                    "tx_sctp_segmentation": "on", 
+                    "tx_sit_segmentation": "off [fixed]", 
+                    "tx_tcp6_segmentation": "on", 
+                    "tx_tcp_ecn_segmentation": "on", 
+                    "tx_tcp_mangleid_segmentation": "on", 
+                    "tx_tcp_segmentation": "on", 
+                    "tx_udp_tnl_csum_segmentation": "off [fixed]", 
+                    "tx_udp_tnl_segmentation": "off [fixed]", 
+                    "tx_vlan_offload": "off [fixed]", 
+                    "tx_vlan_stag_hw_insert": "off [fixed]", 
+                    "udp_fragmentation_offload": "on", 
+                    "vlan_challenged": "on [fixed]"
+                }, 
+                "hw_timestamp_filters": [], 
+                "ipv4": {
+                    "address": "127.0.0.1", 
+                    "broadcast": "host", 
+                    "netmask": "255.0.0.0", 
+                    "network": "127.0.0.0"
+                }, 
+                "ipv6": [
+                    {
+                        "address": "::1", 
+                        "prefix": "128", 
+                        "scope": "host"
+                    }
+                ], 
+                "mtu": 65536, 
+                "promisc": false, 
+                "timestamping": [
+                    "rx_software", 
+                    "software"
+                ], 
+                "type": "loopback"
+            }, 
+            "lsb": {
+                "codename": "Maipo", 
+                "description": "Red Hat Enterprise Linux Server release 7.6 (Maipo)", 
+                "id": "RedHatEnterpriseServer", 
+                "major_release": "7", 
+                "release": "7.6"
+            }, 
+            "lvm": {
+                "lvs": {}, 
+                "pvs": {}, 
+                "vgs": {}
+            }, 
+            "machine": "x86_64", 
+            "machine_id": "38211b1b05b143908776c8eee4cc4581", 
+            "memfree_mb": 10656, 
+            "memory_mb": {
+                "nocache": {
+                    "free": 13730, 
+                    "used": 2298
+                }, 
+                "real": {
+                    "free": 10656, 
+                    "total": 16028, 
+                    "used": 5372
+                }, 
+                "swap": {
+                    "cached": 0, 
+                    "free": 2047, 
+                    "total": 2047, 
+                    "used": 0
+                }
+            }, 
+            "memtotal_mb": 16028, 
+            "module_setup": true, 
+            "mounts": [
+                {
+                    "block_available": 6089863, 
+                    "block_size": 4096, 
+                    "block_total": 8256319, 
+                    "block_used": 2166456, 
+                    "device": "/dev/sda2", 
+                    "fstype": "xfs", 
+                    "inode_available": 16189063, 
+                    "inode_total": 16520704, 
+                    "inode_used": 331641, 
+                    "mount": "/var/lib/docker/overlay2", 
+                    "options": "rw,seclabel,relatime,attr2,inode64,noquota,bind", 
+                    "size_available": 24944078848, 
+                    "size_total": 33817882624, 
+                    "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                }, 
+                {
+                    "block_available": 94346, 
+                    "block_size": 4096, 
+                    "block_total": 127145, 
+                    "block_used": 32799, 
+                    "device": "/dev/sda1", 
+                    "fstype": "xfs", 
+                    "inode_available": 255665, 
+                    "inode_total": 256000, 
+                    "inode_used": 335, 
+                    "mount": "/boot", 
+                    "options": "rw,seclabel,relatime,attr2,inode64,noquota", 
+                    "size_available": 386441216, 
+                    "size_total": 520785920, 
+                    "uuid": "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+                }, 
+                {
+                    "block_available": 7263828, 
+                    "block_size": 4096, 
+                    "block_total": 8223924, 
+                    "block_used": 960096, 
+                    "device": "/dev/sdb1", 
+                    "fstype": "ext4", 
+                    "inode_available": 2097139, 
+                    "inode_total": 2097152, 
+                    "inode_used": 13, 
+                    "mount": "/mnt/resource", 
+                    "options": "rw,seclabel,relatime,data=ordered", 
+                    "size_available": 29752639488, 
+                    "size_total": 33685192704, 
+                    "uuid": "3a8d3690-97f3-48dd-a784-f5141e335677"
+                }, 
+                {
+                    "block_available": 6089863, 
+                    "block_size": 4096, 
+                    "block_total": 8256319, 
+                    "block_used": 2166456, 
+                    "device": "/dev/sda2", 
+                    "fstype": "xfs", 
+                    "inode_available": 16189063, 
+                    "inode_total": 16520704, 
+                    "inode_used": 331641, 
+                    "mount": "/var/lib/docker/containers", 
+                    "options": "rw,seclabel,relatime,attr2,inode64,noquota,bind", 
+                    "size_available": 24944078848, 
+                    "size_total": 33817882624, 
+                    "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                }, 
+                {
+                    "block_available": 6089863, 
+                    "block_size": 4096, 
+                    "block_total": 8256319, 
+                    "block_used": 2166456, 
+                    "device": "/dev/sda2", 
+                    "fstype": "xfs", 
+                    "inode_available": 16189063, 
+                    "inode_total": 16520704, 
+                    "inode_used": 331641, 
+                    "mount": "/", 
+                    "options": "rw,seclabel,relatime,attr2,inode64,noquota", 
+                    "size_available": 24944078848, 
+                    "size_total": 33817882624, 
+                    "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+                }
+            ], 
+            "nodename": "ansible-mgmt", 
+            "os_family": "RedHat", 
+            "pkg_mgr": "yum", 
+            "proc_cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-3.10.0-957.12.2.el7.x86_64", 
+                "LANG": "en_US.UTF-8", 
+                "console": [
+                    "tty1", 
+                    "ttyS0"
+                ], 
+                "earlyprintk": "ttyS0", 
+                "ro": true, 
+                "root": "UUID=437f5efe-afcb-4d8f-99e0-a44d73dda2f9", 
+                "rootdelay": "300"
+            }, 
+            "processor": [
+                "0", 
+                "GenuineIntel", 
+                "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", 
+                "1", 
+                "GenuineIntel", 
+                "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", 
+                "2", 
+                "GenuineIntel", 
+                "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", 
+                "3", 
+                "GenuineIntel", 
+                "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz"
+            ], 
+            "processor_cores": 4, 
+            "processor_count": 1, 
+            "processor_threads_per_core": 1, 
+            "processor_vcpus": 4, 
+            "product_name": "Virtual Machine", 
+            "product_serial": "0000-0002-6848-3812-4658-7048-76", 
+            "product_uuid": "0C764225-B5AB-EC41-94D7-3837D61E90EE", 
+            "product_version": "7.0", 
+            "python": {
+                "executable": "/usr/bin/python2", 
+                "has_sslcontext": true, 
+                "type": "CPython", 
+                "version": {
+                    "major": 2, 
+                    "micro": 5, 
+                    "minor": 7, 
+                    "releaselevel": "final", 
+                    "serial": 0
+                }, 
+                "version_info": [
+                    2, 
+                    7, 
+                    5, 
+                    "final", 
+                    0
+                ]
+            }, 
+            "python_version": "2.7.5", 
+            "real_group_id": 0, 
+            "real_user_id": 0, 
+            "selinux": {
+                "config_mode": "enforcing", 
+                "mode": "enforcing", 
+                "policyvers": 31, 
+                "status": "enabled", 
+                "type": "targeted"
+            }, 
+            "selinux_python_present": true, 
+            "service_mgr": "systemd", 
+            "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCcYE3wjudEWuewKhPJlRt5g4gWO1fWVE5GGYx8PwDo8bvqvtEfGL+9vAiApYr/0bppJRm0B/cdADvLTrsQVY4g=", 
+            "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIHlooomk2q82ua/JE91gG5GyKFSrnESPsfeEt5QxYqjr", 
+            "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDoh0rN4PEEGQcuniYYmEqPw/Zzsle12lqMfRQykpRvq9vlqm+uvEW9tv+UtiQRRs/cpkmCk9rvvKDnJSVX82x6eEU1USDA0yO2IgToc7QEqpay57gpiaLXJTHiW78ErAbPMt+Y7DVtO+fS23chSMR66frwfm4uvqyIZPSBbTVgvNXYe5OHyqP9N72AIAmHzq9l8mJl2X4lxOIsdVr2jp34Ij7XK1OOUMbUielG0uGIoPk/Ffqd98iifRNANNwQQQI4tEHOE8EzK5BglM+FXTXK+/tYzaNqUeHBi9A6LEKSVwsG/ubfBHO8h2/z7k/MAeqfZXPgmWMwddU/Z1BQOaxp", 
+            "swapfree_mb": 2047, 
+            "swaptotal_mb": 2047, 
+            "system": "Linux", 
+            "system_capabilities": [
+                "cap_chown", 
+                "cap_dac_override", 
+                "cap_dac_read_search", 
+                "cap_fowner", 
+                "cap_fsetid", 
+                "cap_kill", 
+                "cap_setgid", 
+                "cap_setuid", 
+                "cap_setpcap", 
+                "cap_linux_immutable", 
+                "cap_net_bind_service", 
+                "cap_net_broadcast", 
+                "cap_net_admin", 
+                "cap_net_raw", 
+                "cap_ipc_lock", 
+                "cap_ipc_owner", 
+                "cap_sys_module", 
+                "cap_sys_rawio", 
+                "cap_sys_chroot", 
+                "cap_sys_ptrace", 
+                "cap_sys_pacct", 
+                "cap_sys_admin", 
+                "cap_sys_boot", 
+                "cap_sys_nice", 
+                "cap_sys_resource", 
+                "cap_sys_time", 
+                "cap_sys_tty_config", 
+                "cap_mknod", 
+                "cap_lease", 
+                "cap_audit_write", 
+                "cap_audit_control", 
+                "cap_setfcap", 
+                "cap_mac_override", 
+                "cap_mac_admin", 
+                "cap_syslog", 
+                "35", 
+                "36+ep"
+            ], 
+            "system_capabilities_enforced": "True", 
+            "system_vendor": "Microsoft Corporation", 
+            "uptime_seconds": 1144012, 
+            "user_dir": "/root", 
+            "user_gecos": "root", 
+            "user_gid": 0, 
+            "user_id": "root", 
+            "user_shell": "/bin/bash", 
+            "user_uid": 0, 
+            "userspace_architecture": "x86_64", 
+            "userspace_bits": "64", 
+            "virtualization_role": "guest", 
+            "virtualization_type": "VirtualPC"
+        }, 
+        "ansible_fibre_channel_wwn": [], 
+        "ansible_fips": false, 
+        "ansible_forks": 5, 
+        "ansible_form_factor": "Desktop", 
+        "ansible_fqdn": "ansible-mgmt", 
+        "ansible_hostname": "ansible-mgmt", 
+        "ansible_hostnqn": "", 
+        "ansible_interfaces": [
+            "lo", 
+            "docker0", 
+            "eth0"
+        ], 
+        "ansible_inventory_sources": [
+            "/home/vkushwah/azure_rm.yml"
+        ], 
+        "ansible_is_chroot": false, 
+        "ansible_iscsi_iqn": "", 
+        "ansible_kernel": "3.10.0-957.12.2.el7.x86_64", 
+        "ansible_lo": {
+            "active": true, 
+            "device": "lo", 
+            "features": {
+                "busy_poll": "off [fixed]", 
+                "fcoe_mtu": "off [fixed]", 
+                "generic_receive_offload": "on", 
+                "generic_segmentation_offload": "on", 
+                "highdma": "on [fixed]", 
+                "hw_tc_offload": "off [fixed]", 
+                "l2_fwd_offload": "off [fixed]", 
+                "large_receive_offload": "off [fixed]", 
+                "loopback": "on [fixed]", 
+                "netns_local": "on [fixed]", 
+                "ntuple_filters": "off [fixed]", 
+                "receive_hashing": "off [fixed]", 
+                "rx_all": "off [fixed]", 
+                "rx_checksumming": "on [fixed]", 
+                "rx_fcs": "off [fixed]", 
+                "rx_gro_hw": "off [fixed]", 
+                "rx_udp_tunnel_port_offload": "off [fixed]", 
+                "rx_vlan_filter": "off [fixed]", 
+                "rx_vlan_offload": "off [fixed]", 
+                "rx_vlan_stag_filter": "off [fixed]", 
+                "rx_vlan_stag_hw_parse": "off [fixed]", 
+                "scatter_gather": "on", 
+                "tcp_segmentation_offload": "on", 
+                "tx_checksum_fcoe_crc": "off [fixed]", 
+                "tx_checksum_ip_generic": "on [fixed]", 
+                "tx_checksum_ipv4": "off [fixed]", 
+                "tx_checksum_ipv6": "off [fixed]", 
+                "tx_checksum_sctp": "on [fixed]", 
+                "tx_checksumming": "on", 
+                "tx_fcoe_segmentation": "off [fixed]", 
+                "tx_gre_csum_segmentation": "off [fixed]", 
+                "tx_gre_segmentation": "off [fixed]", 
+                "tx_gso_partial": "off [fixed]", 
+                "tx_gso_robust": "off [fixed]", 
+                "tx_ipip_segmentation": "off [fixed]", 
+                "tx_lockless": "on [fixed]", 
+                "tx_nocache_copy": "off [fixed]", 
+                "tx_scatter_gather": "on [fixed]", 
+                "tx_scatter_gather_fraglist": "on [fixed]", 
+                "tx_sctp_segmentation": "on", 
+                "tx_sit_segmentation": "off [fixed]", 
+                "tx_tcp6_segmentation": "on", 
+                "tx_tcp_ecn_segmentation": "on", 
+                "tx_tcp_mangleid_segmentation": "on", 
+                "tx_tcp_segmentation": "on", 
+                "tx_udp_tnl_csum_segmentation": "off [fixed]", 
+                "tx_udp_tnl_segmentation": "off [fixed]", 
+                "tx_vlan_offload": "off [fixed]", 
+                "tx_vlan_stag_hw_insert": "off [fixed]", 
+                "udp_fragmentation_offload": "on", 
+                "vlan_challenged": "on [fixed]"
+            }, 
+            "hw_timestamp_filters": [], 
+            "ipv4": {
+                "address": "127.0.0.1", 
+                "broadcast": "host", 
+                "netmask": "255.0.0.0", 
+                "network": "127.0.0.0"
+            }, 
+            "ipv6": [
+                {
+                    "address": "::1", 
+                    "prefix": "128", 
+                    "scope": "host"
+                }
+            ], 
+            "mtu": 65536, 
+            "promisc": false, 
+            "timestamping": [
+                "rx_software", 
+                "software"
+            ], 
+            "type": "loopback"
+        }, 
+        "ansible_local": {}, 
+        "ansible_lsb": {
+            "codename": "Maipo", 
+            "description": "Red Hat Enterprise Linux Server release 7.6 (Maipo)", 
+            "id": "RedHatEnterpriseServer", 
+            "major_release": "7", 
+            "release": "7.6"
+        }, 
+        "ansible_lvm": {
+            "lvs": {}, 
+            "pvs": {}, 
+            "vgs": {}
+        }, 
+        "ansible_machine": "x86_64", 
+        "ansible_machine_id": "38211b1b05b143908776c8eee4cc4581", 
+        "ansible_memfree_mb": 10656, 
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 13730, 
+                "used": 2298
+            }, 
+            "real": {
+                "free": 10656, 
+                "total": 16028, 
+                "used": 5372
+            }, 
+            "swap": {
+                "cached": 0, 
+                "free": 2047, 
+                "total": 2047, 
+                "used": 0
+            }
+        }, 
+        "ansible_memtotal_mb": 16028, 
+        "ansible_mounts": [
+            {
+                "block_available": 6089863, 
+                "block_size": 4096, 
+                "block_total": 8256319, 
+                "block_used": 2166456, 
+                "device": "/dev/sda2", 
+                "fstype": "xfs", 
+                "inode_available": 16189063, 
+                "inode_total": 16520704, 
+                "inode_used": 331641, 
+                "mount": "/var/lib/docker/overlay2", 
+                "options": "rw,seclabel,relatime,attr2,inode64,noquota,bind", 
+                "size_available": 24944078848, 
+                "size_total": 33817882624, 
+                "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+            }, 
+            {
+                "block_available": 94346, 
+                "block_size": 4096, 
+                "block_total": 127145, 
+                "block_used": 32799, 
+                "device": "/dev/sda1", 
+                "fstype": "xfs", 
+                "inode_available": 255665, 
+                "inode_total": 256000, 
+                "inode_used": 335, 
+                "mount": "/boot", 
+                "options": "rw,seclabel,relatime,attr2,inode64,noquota", 
+                "size_available": 386441216, 
+                "size_total": 520785920, 
+                "uuid": "f7f27132-9ca2-4de3-9a55-4a90d35fc73d"
+            }, 
+            {
+                "block_available": 7263828, 
+                "block_size": 4096, 
+                "block_total": 8223924, 
+                "block_used": 960096, 
+                "device": "/dev/sdb1", 
+                "fstype": "ext4", 
+                "inode_available": 2097139, 
+                "inode_total": 2097152, 
+                "inode_used": 13, 
+                "mount": "/mnt/resource", 
+                "options": "rw,seclabel,relatime,data=ordered", 
+                "size_available": 29752639488, 
+                "size_total": 33685192704, 
+                "uuid": "3a8d3690-97f3-48dd-a784-f5141e335677"
+            }, 
+            {
+                "block_available": 6089863, 
+                "block_size": 4096, 
+                "block_total": 8256319, 
+                "block_used": 2166456, 
+                "device": "/dev/sda2", 
+                "fstype": "xfs", 
+                "inode_available": 16189063, 
+                "inode_total": 16520704, 
+                "inode_used": 331641, 
+                "mount": "/var/lib/docker/containers", 
+                "options": "rw,seclabel,relatime,attr2,inode64,noquota,bind", 
+                "size_available": 24944078848, 
+                "size_total": 33817882624, 
+                "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+            }, 
+            {
+                "block_available": 6089863, 
+                "block_size": 4096, 
+                "block_total": 8256319, 
+                "block_used": 2166456, 
+                "device": "/dev/sda2", 
+                "fstype": "xfs", 
+                "inode_available": 16189063, 
+                "inode_total": 16520704, 
+                "inode_used": 331641, 
+                "mount": "/", 
+                "options": "rw,seclabel,relatime,attr2,inode64,noquota", 
+                "size_available": 24944078848, 
+                "size_total": 33817882624, 
+                "uuid": "437f5efe-afcb-4d8f-99e0-a44d73dda2f9"
+            }
+        ], 
+        "ansible_nodename": "ansible-mgmt", 
+        "ansible_os_family": "RedHat", 
+        "ansible_pkg_mgr": "yum", 
+        "ansible_playbook_python": "/usr/bin/python2", 
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-3.10.0-957.12.2.el7.x86_64", 
+            "LANG": "en_US.UTF-8", 
+            "console": [
+                "tty1", 
+                "ttyS0"
+            ], 
+            "earlyprintk": "ttyS0", 
+            "ro": true, 
+            "root": "UUID=437f5efe-afcb-4d8f-99e0-a44d73dda2f9", 
+            "rootdelay": "300"
+        }, 
+        "ansible_processor": [
+            "0", 
+            "GenuineIntel", 
+            "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", 
+            "1", 
+            "GenuineIntel", 
+            "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", 
+            "2", 
+            "GenuineIntel", 
+            "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz", 
+            "3", 
+            "GenuineIntel", 
+            "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz"
+        ], 
+        "ansible_processor_cores": 4, 
+        "ansible_processor_count": 1, 
+        "ansible_processor_threads_per_core": 1, 
+        "ansible_processor_vcpus": 4, 
+        "ansible_product_name": "Virtual Machine", 
+        "ansible_product_serial": "0000-0002-6848-3812-4658-7048-76", 
+        "ansible_product_uuid": "0C764225-B5AB-EC41-94D7-3837D61E90EE", 
+        "ansible_product_version": "7.0", 
+        "ansible_python": {
+            "executable": "/usr/bin/python2", 
+            "has_sslcontext": true, 
+            "type": "CPython", 
+            "version": {
+                "major": 2, 
+                "micro": 5, 
+                "minor": 7, 
+                "releaselevel": "final", 
+                "serial": 0
+            }, 
+            "version_info": [
+                2, 
+                7, 
+                5, 
+                "final", 
+                0
+            ]
+        }, 
+        "ansible_python_interpreter": "/usr/bin/python2", 
+        "ansible_python_version": "2.7.5", 
+        "ansible_real_group_id": 0, 
+        "ansible_real_user_id": 0, 
+        "ansible_run_tags": [
+            "test", 
+            "log_analytics", 
+            "groups"
+        ], 
+        "ansible_selinux": {
+            "config_mode": "enforcing", 
+            "mode": "enforcing", 
+            "policyvers": 31, 
+            "status": "enabled", 
+            "type": "targeted"
+        }, 
+        "ansible_selinux_python_present": true, 
+        "ansible_service_mgr": "systemd", 
+        "ansible_skip_tags": [], 
+        "ansible_ssh_common_args": "-o UserKnownHostsFile={{ SSH_USERKNOWNHOSTSFILE }}", 
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCcYE3wjudEWuewKhPJlRt5g4gWO1fWVE5GGYx8PwDo8bvqvtEfGL+9vAiApYr/0bppJRm0B/cdADvLTrsQVY4g=", 
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIHlooomk2q82ua/JE91gG5GyKFSrnESPsfeEt5QxYqjr", 
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDoh0rN4PEEGQcuniYYmEqPw/Zzsle12lqMfRQykpRvq9vlqm+uvEW9tv+UtiQRRs/cpkmCk9rvvKDnJSVX82x6eEU1USDA0yO2IgToc7QEqpay57gpiaLXJTHiW78ErAbPMt+Y7DVtO+fS23chSMR66frwfm4uvqyIZPSBbTVgvNXYe5OHyqP9N72AIAmHzq9l8mJl2X4lxOIsdVr2jp34Ij7XK1OOUMbUielG0uGIoPk/Ffqd98iifRNANNwQQQI4tEHOE8EzK5BglM+FXTXK+/tYzaNqUeHBi9A6LEKSVwsG/ubfBHO8h2/z7k/MAeqfZXPgmWMwddU/Z1BQOaxp", 
+        "ansible_ssh_private_key_file": "{{ AZURE_ADMINUSER_PRIVATE_SSH_KEY | default('') }}", 
+        "ansible_swapfree_mb": 2047, 
+        "ansible_swaptotal_mb": 2047, 
+        "ansible_system": "Linux", 
+        "ansible_system_capabilities": [
+            "cap_chown", 
+            "cap_dac_override", 
+            "cap_dac_read_search", 
+            "cap_fowner", 
+            "cap_fsetid", 
+            "cap_kill", 
+            "cap_setgid", 
+            "cap_setuid", 
+            "cap_setpcap", 
+            "cap_linux_immutable", 
+            "cap_net_bind_service", 
+            "cap_net_broadcast", 
+            "cap_net_admin", 
+            "cap_net_raw", 
+            "cap_ipc_lock", 
+            "cap_ipc_owner", 
+            "cap_sys_module", 
+            "cap_sys_rawio", 
+            "cap_sys_chroot", 
+            "cap_sys_ptrace", 
+            "cap_sys_pacct", 
+            "cap_sys_admin", 
+            "cap_sys_boot", 
+            "cap_sys_nice", 
+            "cap_sys_resource", 
+            "cap_sys_time", 
+            "cap_sys_tty_config", 
+            "cap_mknod", 
+            "cap_lease", 
+            "cap_audit_write", 
+            "cap_audit_control", 
+            "cap_setfcap", 
+            "cap_mac_override", 
+            "cap_mac_admin", 
+            "cap_syslog", 
+            "35", 
+            "36+ep"
+        ], 
+        "ansible_system_capabilities_enforced": "True", 
+        "ansible_system_vendor": "Microsoft Corporation", 
+        "ansible_uptime_seconds": 1144012, 
+        "ansible_user_dir": "/root", 
+        "ansible_user_gecos": "root", 
+        "ansible_user_gid": 0, 
+        "ansible_user_id": "root", 
+        "ansible_user_shell": "/bin/bash", 
+        "ansible_user_uid": 0, 
+        "ansible_userspace_architecture": "x86_64", 
+        "ansible_userspace_bits": "64", 
+        "ansible_verbosity": 0, 
+        "ansible_version": {
+            "full": "2.8.0", 
+            "major": 2, 
+            "minor": 8, 
+            "revision": 0, 
+            "string": "2.8.0"
+        }, 
+        "ansible_virtualization_role": "guest", 
+        "ansible_virtualization_type": "VirtualPC", 
+        "azureloganalyticsinfo": {
+            "changed": false, 
+            "failed": false, 
+            "warnings": [
+                "Azure API profile latest does not define an entry for LogAnalyticsManagementClient"
+            ], 
+            "workspaces": [
+                {
+                    "customer_id": "8d18fb8f-c35b-4e7d-90fb-eed8df151ac4", 
+                    "id": "/subscriptions/033534bc-b7cb-44a4-8449-f1b2ba82a149/resourcegroups/kubernetes-poc-vkushwahaloganal/providers/microsoft.operationalinsights/workspaces/fluentd-logs", 
+                    "location": "westeurope", 
+                    "management_groups": [], 
+                    "name": "fluentd-logs", 
+                    "provisioning_state": "Succeeded", 
+                    "retention_in_days": 30, 
+                    "shared_keys": {
+                        "primary_shared_key": "xvT5twXZwr9/JnpzlGfj73mvAiY7B//YNzGHfORRSvP6aoI0u2VASNEpzv9qMLnE3tDpTDAHwrhBEEwn5cSWpg==", 
+                        "secondary_shared_key": "RY31Eb2k2+k4CI0uf0pU1Hz0J5qz/NK48TpqwedYdXgoUzhZ6iUdc21hlZ5XqKYSO8ad6GLBNVZVtp6IXujGAg=="
+                    }, 
+                    "sku": "pergb2018", 
+                    "source": "Azure", 
+                    "type": "Microsoft.OperationalInsights/workspaces", 
+                    "usages": [
+                        {
+                            "current_value": 0.0, 
+                            "limit": -1.0, 
+                            "name": {
+                                "localized_value": "Data Analyzed", 
+                                "value": "DataAnalyzed"
+                            }, 
+                            "next_reset_time": "2019-09-10T00:00:00.000Z", 
+                            "quota_period": "P1D", 
+                            "unit": "Bytes"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        "gather_subset": [
+            "all"
+        ], 
+        "group_names": [], 
+        "groups": {
+            "Azure-kubernetes-poc-vkushwahaloganal-jumpserver": [
+                "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee"
+            ], 
+            "Azure-kubernetes-poc-vkushwahaloganal-vmss-master": [
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade"
+            ], 
+            "Azure-kubernetes-poc-vkushwahaloganal-vmss-worker": [
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c"
+            ], 
+            "all": [
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c", 
+                "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee", 
+                "jumpserver_59ee", 
+                "master_0_3074", 
+                "master_1_b52f", 
+                "master_4_9ade", 
+                "worker_0_ad97", 
+                "worker_2_0c2c"
+            ], 
+            "all_the_hosts": [
+                "jumpserver_59ee", 
+                "master_0_3074", 
+                "master_1_b52f", 
+                "master_4_9ade", 
+                "worker_0_ad97", 
+                "worker_2_0c2c"
+            ], 
+            "azure-hosts": [
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97", 
+                "azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c", 
+                "azure-kubernetes-poc-vkushwahaloganal-vm-jumpserver_59ee"
+            ], 
+            "jumpserver": [
+                "jumpserver_59ee"
+            ], 
+            "master": [
+                "master_0_3074", 
+                "master_1_b52f", 
+                "master_4_9ade"
+            ], 
+            "ungrouped": [], 
+            "worker": [
+                "worker_0_ad97", 
+                "worker_2_0c2c"
+            ]
+        }, 
+        "inventory_hostname": "localhost", 
+        "inventory_hostname_short": "localhost", 
+        "module_setup": true, 
+        "omit": "__omit_place_holder__6a5503cbee173212fd9f9fed7a8d3868e48d66cd", 
+        "playbook_dir": "/home/vkushwah/Daimler_Juno/Juno_Git/k8s_tools/playbooks"
+    }
+}
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [Deploy StorageOS cluster.] ***************************************************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-infra] ****************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c] ********************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-infra] ****************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97] ********************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [Azure-kubernetes-poc-vkushwahaloganal-vmss-worker] ***************************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97] ********************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+PLAY [azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074] ********************************************************************************************************
+
+PLAY [[u'azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074', u'azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f', u'azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade']] ***
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+PLAY [localhost] *******************************************************************************************************************************************************
+
+PLAY [Deploy consule cluster.] *****************************************************************************************************************************************
+
+PLAY RECAP *************************************************************************************************************************************************************
+azure-kubernetes-poc-vkushwahaloganal-vmss-master_0_3074 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+azure-kubernetes-poc-vkushwahaloganal-vmss-master_1_b52f : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+azure-kubernetes-poc-vkushwahaloganal-vmss-master_4_9ade : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+azure-kubernetes-poc-vkushwahaloganal-vmss-worker_0_ad97 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+azure-kubernetes-poc-vkushwahaloganal-vmss-worker_2_0c2c : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=21   changed=4    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
